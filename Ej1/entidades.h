@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include "personal.h"
 #include "departamento.h"
 
@@ -9,13 +10,13 @@
 class EntidadOrganizativa{
     protected: //PREGUNTAR
         std::string nombre;
-        std::vector<unique_ptr<EntidadOrganizativa>> subentidades;
+        std::vector<std::unique_ptr<EntidadOrganizativa>> subentidades;
     
     public:
-        EntidadOrganizativa(std::string, std::vector<unique_ptr<EntidadOrganizativa>>);
-        virtual std::string getNombre() const;
-        virtual void agrgarSubentidad(unique_ptr<EntidadOrganizativa>) = 0;
-        virtual int contarSubentidades()const;
+        EntidadOrganizativa(std::string);
+        virtual std::string getNombre() const = 0;
+        virtual void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>) = 0;
+        virtual int contarSubentidades()const = 0;
         virtual ~EntidadOrganizativa();    
 };       
 
@@ -27,18 +28,19 @@ class Empresa: public EntidadOrganizativa{
     
     public:
         //constructor
-        Empresa(std::string);//falta algo
+        Empresa(std::string, std::string, Departamento::Departamento);//falta algo
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agrgarSubentidad(unique_ptr<EntidadOrganizativa>)const override;
+        void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>) override;
         int contarSubentidades() const override;
 
         //métodos/atributos propios
-        //std::string nombre; no hace falta esta en la general
         std::string direccion;
-        Departamento getDepByName(std::string) const;
+        Departamento::Departamento getDepByName(std::string) const;
         std::vector<Departamento> getDepNames() const;
+
+        ~Empresa();
 };
 
 
@@ -50,21 +52,23 @@ class CentralRegional: public EntidadOrganizativa{
     std::vector<Empresa> empresas; //unique y ordenado
     
     public:
-    //constructor
-    CentralRegional(std::string); //falta algo
-    
-    //métodos a sobreescribir
-    std::string getNombre() const override;
-    void agrgarSubentidad(unique_ptr<EntidadOrganizativa>)const override;
-    int contarSubentidades() const override;
-    
-    //métodos/atributos propios
-    //std::string nombre; no hace falta esta en la general
-    std::vector<std::string> pais; //unique y ordenado
-    int getCantEmpleados() const;
-    std::vector<string> getEmpNames() const;
+        //constructor
+        CentralRegional(std::string); //falta algo
+        
+        //métodos a sobreescribir
+        std::string getNombre() const override;
+        void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>)const override;
+        int contarSubentidades() const override;
+        
+        //métodos/atributos propios
+        //std::string nombre; no hace falta esta en la general
+        std::vector<std::string> pais; //unique y ordenado
+        int getCantEmpleados() const;
+        std::vector<string> getEmpNames() const;
         std::vector<GerenteAlto> getGerentesAlto() const;
         std::vector<GerenteMedio> getGerentesMedio() const;
+
+        ~CentralRegional();
 };
     
 //RELACION DE COMPOSICION ENTRE EMPRESA Y CENTRAL REGIONAL

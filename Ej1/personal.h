@@ -17,6 +17,8 @@ class Empleado{
         int getAntiguedad() const;
         bool updateSalario(float);
 
+        virtual ~Empleado();
+
 }
 /*
 RELACION DE COMPOSICIÓN CON DEPARTAMENTO
@@ -36,6 +38,8 @@ class Manager: public Empleado{
         bool updateBono(float);
         float getBono() const;
         bool setLevel(std::string);
+
+        virtual ~Manager();
 };
 
 //Declaracion de subclases
@@ -43,11 +47,13 @@ class Manager: public Empleado{
 class GerenteAlto: public Manager{
     public:
         GerenteAlto(std::string, std::string, int, int, float);
+        ~GerenteAlto();
 };
 
 class GerenteMedio: public Manager{
     public:
         GerenteMedio(std::string, std::string, int, int, float);
+        ~GerenteMedio();
 
 };
 
@@ -60,9 +66,12 @@ cada uno puede pertenecer a tan solo una sentral regional
 class GerenteBajo: public Manager{
     public:
         GerenteBajo();
+        ~GerenteBajo();
 };
 
 class LiderEquipo: public Manager{
     public:
         LiderEquipo();
+        ~LiderEquipo();
+
 };
