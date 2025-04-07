@@ -8,9 +8,8 @@ class Empleado{
     protected:
         int antiguedad;
         float salario;
-        float getSalario() const;
-    
-    public:
+        
+        public:
         //constructor
         Empleado(std::string, std::string, int, float); //nombre, puesto, antiguedad, salario
         
@@ -19,6 +18,7 @@ class Empleado{
         std::string puesto;
         
         int getAntiguedad() const;
+        float getSalario() const;
         bool updateSalario(float);
 
         //destructor

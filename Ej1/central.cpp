@@ -26,7 +26,7 @@ string CentralRegional::getNombre() const{
     return nombre;
 }
 
-void CentralRegional::agrgarSubentidad(unique_ptr<EntidadOrganizativa> subentidad){
+void CentralRegional::agrgarSubentidad(ntidadOrganizativa subentidad){
     subentidades.push_back(subentidad);
     cout<<"Subentidad agergada con exito"<<endl;
     return;
@@ -56,10 +56,10 @@ vector<string> getEmpNames() const{
     return nombre_empleados;
 } 
 
-std::vector<GerenteAlto> getGerenteAlto() const{
+vector<GerenteAlto> getGerenteAlto() const{
     return gerentesAlto;
 }
 
-std::vector<GerenteMedio> getGerenteMedio() const{
+vector<GerenteMedio> getGerenteMedio() const{
     return gerentesMedio;
 }

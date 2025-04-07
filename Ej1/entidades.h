@@ -11,7 +11,7 @@
 class EntidadOrganizativa{
     protected:
         std::string nombre;
-        std::set<std::unique_ptr<EntidadOrganizativa>> subentidades; //[1, inf]
+        std::set<EntidadOrganizativa> subentidades; //[inf]
     
     public:
         //condtructor    
@@ -45,7 +45,7 @@ class Empresa: public EntidadOrganizativa{
         std::string direccion;
         void agregarDep(const Departamento&);
         Departamento::Departamento getDepByName(std::string) const;
-        std::vector<Departamento> getDepNames() const;
+        std::string getDepNames() const;
 
         ~Empresa() = default;
 };
@@ -64,7 +64,7 @@ class CentralRegional: public EntidadOrganizativa{
         
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>)const override;
+        void agrgarSubentidad(EntidadOrganizativa&)const override;
         int contarSubentidades() const override;
         
         //métodos/atributos propios

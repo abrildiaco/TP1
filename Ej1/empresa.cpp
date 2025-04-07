@@ -23,7 +23,7 @@ Empresa::Empresa(string unNombre, Departamento unDep, string unaDireccion, class
 
 string Empresa::getNombre(){return nombre;}
 
-void Empresa::agrgarSubentidad(unique_ptr<EntidadOrganizativa> subentidad){
+void Empresa::agrgarSubentidad(EntidadOrganizativa& subentidad){
     subentidades.push_back(subentidad);
     return;
 }
@@ -52,8 +52,12 @@ Departamento Empresa::getDepByName(string nombreDep){
     return;
 }
 
-vector<Departamento> Empresa::getDepNames() const{
-    return departamentos;
+string Empresa::getDepNames() const{
+    vector<string> deptNames;
+    for(Departamento dep: departamentos){
+        deptNames.push_back(dep.nombre)
+    }
+    return deptNames;
 }
 
 

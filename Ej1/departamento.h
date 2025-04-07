@@ -8,6 +8,7 @@
 
 class Departamento{
     private:
+        static int cantEmpleadosDepts; //STATIC -instanciar afuera
         std::vector<Empleado> empleados; //[1, inf]
     
     public:
