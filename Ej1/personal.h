@@ -5,19 +5,24 @@
 //Declaración de superclase Empleado
 
 class Empleado{
-    private:
+    protected:
         int antiguedad;
         float salario;
         float getSalario() const;
     
     public:
-        Empleado(std::string, std::string, int, int);
+        //constructor
+        Empleado(std::string, std::string, int, float); //nombre, puesto, antiguedad, salario
+        
+        //metodos/atributos
         std::string nombre;
         std::string puesto;
+        
         int getAntiguedad() const;
         bool updateSalario(float);
 
-        virtual ~Empleado();
+        //destructor
+        virtual ~Empleado() = default;
 
 }
 /*
@@ -29,31 +34,35 @@ pueden pertenecer a un departamento
 //Declaración de sub-superclase Manager
 
 class Manager: public Empleado{
-    private:
+    protected:
         float bono;
         std::string level;
     
     public:
-        Manager(std::string, std::string, int, int, float);
+        //constructor
+        Manager(std::string, std::string, int, float, float);
+        
+        //metodos
         bool updateBono(float);
         float getBono() const;
         bool setLevel(std::string);
 
-        virtual ~Manager();
+        //destructor
+        virtual ~Manager() = default;
 };
 
 //Declaracion de subclases
 
 class GerenteAlto: public Manager{
     public:
-        GerenteAlto(std::string, std::string, int, int, float);
-        ~GerenteAlto();
+        GerenteAlto(std::string, std::string, int, float, float);
+        ~GerenteAlto() = default;
 };
 
 class GerenteMedio: public Manager{
     public:
-        GerenteMedio(std::string, std::string, int, int, float);
-        ~GerenteMedio();
+        GerenteMedio(std::string, std::string, int, float, float);
+        ~GerenteMedio() = default;
 
 };
 
@@ -65,13 +74,13 @@ cada uno puede pertenecer a tan solo una sentral regional
 
 class GerenteBajo: public Manager{
     public:
-        GerenteBajo();
-        ~GerenteBajo();
+        GerenteBajo(std::string, std::string, int, float, float);
+        ~GerenteBajo() = default;
 };
 
 class LiderEquipo: public Manager{
     public:
-        LiderEquipo();
-        ~LiderEquipo();
+        LiderEquipo(std::string, std::string, int, float, float);
+        ~LiderEquipo() = default;
 
 };

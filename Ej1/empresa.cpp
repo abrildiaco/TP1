@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -11,17 +12,19 @@ using namespace std;
 EntidadOrganizativa::EntidadOrganizativa(string unNombre) //VER DONDE PONER EL CONSTRUCTOR
     :nombre(unNombre){}
 
-//constructor
+//constructor Empresa
 
-Empresa::Empresa(string unNombre, Departamento unDep, string unaDireccion, Departamento::Departamento unDept)
+Empresa::Empresa(string unNombre, Departamento unDep, string unaDireccion, class Departamento unDept)
     :EntidadOrganizativa(unNombre), direccion(unaDireccion) {
         departamentos.push_back(unDept);
-    } //PREGUNTAR DEPARTAMENTO
+    }
+
+//metodos a sobreescribir
 
 string Empresa::getNombre(){return nombre;}
 
 void Empresa::agrgarSubentidad(unique_ptr<EntidadOrganizativa> subentidad){
-    subentidades.push_bach(subentidad);
+    subentidades.push_back(subentidad);
     return;
 }
 
@@ -30,13 +33,22 @@ int Empresa::contarSubentidades() const{
     return subentidades.size();
 }
 
+//metodos propios
+
+void Empresa::agregarDep(const Departamento& dept){
+    departamentos.push_back(dept);
+    cout<<"Departamento "<<dept.nombre<<" agregado con exito"<<endl;
+    return;
+}
+
+
 Departamento Empresa::getDepByName(string nombreDep){
 
     for(Departamento dep: departamentos){
         if (dep.nombre == nombreDep) return dep;
     }
 
-    cout<<"No se encontro el departamento "<<nombreDep<<endl;
+    throw invalid_argument("No se encontro el departamento")
     return;
 }
 

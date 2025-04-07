@@ -3,28 +3,34 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <set>
 #include "personal.h"
 #include "departamento.h"
 
 //CLASE ABSTRACTA
 class EntidadOrganizativa{
-    protected: //PREGUNTAR
+    protected:
         std::string nombre;
-        std::vector<std::unique_ptr<EntidadOrganizativa>> subentidades;
+        std::set<std::unique_ptr<EntidadOrganizativa>> subentidades; //[1, inf]
     
     public:
+        //condtructor    
         EntidadOrganizativa(std::string);
+        
+        //metodos virtuales puros
         virtual std::string getNombre() const = 0;
         virtual void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>) = 0;
         virtual int contarSubentidades()const = 0;
-        virtual ~EntidadOrganizativa();    
+        
+        //destructor
+        virtual ~EntidadOrganizativa() = default;    
 };       
 
 //CLASES DERIVADAS
 
 class Empresa: public EntidadOrganizativa{
     private:
-        std::vector<std::Departamento> departamentos;
+        std::vector<std::Departamento> departamentos; //[1, inf]
     
     public:
         //constructor
@@ -37,23 +43,24 @@ class Empresa: public EntidadOrganizativa{
 
         //métodos/atributos propios
         std::string direccion;
+        void agregarDep(const Departamento&);
         Departamento::Departamento getDepByName(std::string) const;
         std::vector<Departamento> getDepNames() const;
 
-        ~Empresa();
+        ~Empresa() = default;
 };
 
 
 class CentralRegional: public EntidadOrganizativa{
     private:
-    int cantEmpleados;
-    std::vector<std::GerenteAlto> gerentesAlto; //[1, 5]
-    std::vector<std::GerenteMedio> gerentesMedio; //[1, 20]
-    std::vector<Empresa> empresas; //unique y ordenado
-    
+        int cantEmpleados;
+        std::vector<std::GerenteAlto> gerentesAlto; //[1, 5]
+        std::vector<std::GerenteMedio> gerentesMedio; //[1, 20]
+        std::set<Empresa> empresas; //unique y ordenado [1, inf]
+        
     public:
         //constructor
-        CentralRegional(std::string); //falta algo
+        CentralRegional(std::string, GerenteAlto&, GerenteMedio&);
         
         //métodos a sobreescribir
         std::string getNombre() const override;
@@ -61,14 +68,15 @@ class CentralRegional: public EntidadOrganizativa{
         int contarSubentidades() const override;
         
         //métodos/atributos propios
-        //std::string nombre; no hace falta esta en la general
-        std::vector<std::string> pais; //unique y ordenado
+        std::set<std::string> pais; //unique y ordenado
+        
+        void agregarEmpresa()const;
         int getCantEmpleados() const;
-        std::vector<string> getEmpNames() const;
-        std::vector<GerenteAlto> getGerentesAlto() const;
-        std::vector<GerenteMedio> getGerentesMedio() const;
+        std::vector<string> getEmpNames() const; //[1, inf]
+        std::vector<GerenteAlto> getGerenteAlto() const;
+        std::vector<GerenteMedio> getGerenteMedio() const;
 
-        ~CentralRegional();
+        ~CentralRegional() = default;
 };
     
 //RELACION DE COMPOSICION ENTRE EMPRESA Y CENTRAL REGIONAL

@@ -8,15 +8,23 @@
 
 class Departamento{
     private:
-        std::vector<Empleado> empleados;
+        std::vector<Empleado> empleados; //[1, inf]
     
     public:
+        //constructor
+        Departamneto(std::string, std::string); //nombre, ubi
+
+        //metodos/atributos
         std::string nombre;
         std::string ubicacion;
-        static int contarEmpleados() const;
+        
+        static int contarEmpleados() const; //STATIC - se instancia afuera
         std::vector<Empleado> getEmployees() const;
-        bool contratarEmpleado(Empleado);
-        bool despedirEmpleado(Empleado);
+        bool contratarEmpleado(Empleado&);
+        bool despedirEmpleado(Empleado&);
+
+        //destructor
+        ~Departamento() = default;
 }
 
 /*
