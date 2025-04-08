@@ -12,14 +12,15 @@ class Departamento{
         std::vector<Empleado> empleados; //[1, inf]
     
     public:
-        //constructor
-        Departamento(std::string, std::string); //nombre, ubi
-
-        //metodos/atributos
+        //atributos
         bool ocupado; //atributo para cumplir con la composicion
         std::string nombre;
         std::string ubicacion;
         
+        //constructor
+        Departamento(std::string, std::string); //nombre, ubi
+
+        //metodos
         void cambiarOcupado(bool);
         static int contarEmpleados(); //STATIC - se instancia afuera
         std::vector<Empleado> getEmployees() const;

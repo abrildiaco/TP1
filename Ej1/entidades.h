@@ -36,18 +36,19 @@ class Empresa: public EntidadOrganizativa{
         std::vector<Departamento> departamentos; //[1, inf]
     
     public:
+        //atributos
+        bool ocupada; //atributo para cumplir con la composicion
+        std::string direccion;
+        
         //constructor
         Empresa(std::string, std::string, Departamento);//falta algo
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override = delete;
-        int contarSubentidades() const override = delete;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override ; //VER COMO BORAR ESTOOOOOOOOOOO
+        int contarSubentidades() const override;
 
-        //métodos/atributos propios
-        bool ocupada; //atributo para cumplir con la composicion
-        std::string direccion;
-
+        //metodos propios
         void cambiarOcupada(bool);
         void agregarDep(Departamento&);
         Departamento getDepByName(std::string) const;
@@ -69,21 +70,22 @@ class CentralRegional: public EntidadOrganizativa{
         std::set<Empresa> empresas; //unique y ordenado [1, inf]
         
     public:
+        //atrubutos
+        std::set<std::string> pais; //unique y ordenado
+        
         //constructor
         CentralRegional(std::string, GerenteAlto&, GerenteMedio&);
         
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa> ) override;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa> ) override; //FIJARME SI ANDA SIN PUNTEROS DESABILITANDO LO OTRO
         int contarSubentidades() const override;
         
-        //métodos/atributos propios
-        std::set<std::string> pais; //unique y ordenado
-        
-        int getCantEmpleados() const;
-        std::vector<std::string> getEmpNames() const; //[1, inf]
+        //metodos propios
         void contratarGerenteAlto(GerenteAlto&);
         void contratarGerenteMedio(GerenteMedio&);
+        int getCantEmpleados() const;
+        std::vector<std::string> getEmpNames() const; //[1, inf]
         std::vector<GerenteAlto> getGerenteAlto() const;
         std::vector<GerenteMedio> getGerenteMedio() const;
         

@@ -9,15 +9,16 @@ class Empleado{
         int antiguedad;
         float salario;
         
-        public:
-        //constructor
-        Empleado(std::string, std::string, int, float); //nombre, puesto, antiguedad, salario
-        
-        //metodos/atributos
+    public:
+        //atributos
         bool contratado; //atributo para cumplir con la composicion
         std::string nombre;
         std::string puesto;
         
+        //constructor
+        Empleado(std::string, std::string, int, float); //nombre, puesto, antiguedad, salario
+        
+        //metodos
         void cambiarContratado(bool);
         int getAntiguedad() const;
         float getSalario() const;
@@ -57,12 +58,14 @@ class Manager: public Empleado{
 
 class GerenteAlto: public Manager{
     public:
+        //constructor/destructor
         GerenteAlto(std::string, std::string, int, float, float);
         ~GerenteAlto() = default;
 };
 
 class GerenteMedio: public Manager{
     public:
+        //constructor/destructor
         GerenteMedio(std::string, std::string, int, float, float);
         ~GerenteMedio() = default;
 
@@ -76,12 +79,14 @@ cada uno puede pertenecer a tan solo una sentral regional
 
 class GerenteBajo: public Manager{
     public:
+        //constructor/destructor
         GerenteBajo(std::string, std::string, int, float, float);
         ~GerenteBajo() = default;
 };
 
 class LiderEquipo: public Manager{
     public:
+        //constructor/destructor
         LiderEquipo(std::string, std::string, int, float, float);
         ~LiderEquipo() = default;
 
