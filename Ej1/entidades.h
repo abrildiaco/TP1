@@ -32,6 +32,7 @@ class CentralRegional;
 
 class Empresa: public EntidadOrganizativa{
     private:
+    //ABGREGAR EL DELETE ACA DEL VECTOR
         std::vector<Departamento> departamentos; //[1, inf]
     
     public:
