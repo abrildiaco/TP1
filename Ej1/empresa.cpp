@@ -19,12 +19,6 @@ Empresa::Empresa(string unNombre, string unaDireccion, class Departamento unDept
         departamentos.push_back(unDept);
     }
 
-//constructor de copia
-
-// Empresa::Empresa(const Empresa& otra)
-// : EntidadOrganizativa(otra.nombre), direccion(otra.direccion), ocupada(otra), departamentos(otra.departamentos) {}
-
-
 //metodos a sobreescribir
 
 string Empresa::getNombre()const {return nombre;}

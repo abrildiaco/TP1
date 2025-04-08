@@ -38,9 +38,6 @@ class Empresa: public EntidadOrganizativa{
         //constructor
         Empresa(std::string, std::string, Departamento);//falta algo
 
-        // //constructor de cpia para poder usar set sin punteros (no se piden punteroas en la consigna)
-        // Empresa(const Empresa&);
-
         //métodos a sobreescribir
         std::string getNombre() const override;
         void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>) override;
@@ -82,7 +79,6 @@ class CentralRegional: public EntidadOrganizativa{
         //métodos/atributos propios
         std::set<std::string> pais; //unique y ordenado
         
-        void agregarEmpresa(Empresa&);
         int getCantEmpleados() const;
         std::vector<std::string> getEmpNames() const; //[1, inf]
         void contratarGerenteAlto(GerenteAlto&);

@@ -26,12 +26,19 @@ string CentralRegional::getNombre() const{
     return nombre;
 }
 
-void CentralRegional::agregarSubentidad(shared_ptr<EntidadOrganizativa> subentidad){
+void CentralRegional::agregarSubentidad(shared_ptr<EntidadOrganizativa> subentidad){ //CAMBIAR ESTO ED PUNTEROS ARREGLAR!!!!!!!!!!!!!!
+    
+    if (empresa.ocupada == true)
+        throw invalid_argument("La empresa ya pertenece a otra central regional");
+    
+    empresas.insert(empresa);
+    empresa.cambiarOcupada(true);
+    cout<<"Empresa agregada con exito"<<endl;
+    
     subentidades.push_back(move(subentidad));
     cout<<"Subentidad agregada con exito"<<endl;
     return;
 }
-
 
 int CentralRegional::contarSubentidades() const{
     return subentidades.size();
@@ -39,14 +46,6 @@ int CentralRegional::contarSubentidades() const{
 
 
 //métodos propios
-void CentralRegional::agregarEmpresa(Empresa& empresa){
-    if (empresa.ocupada == true)
-        throw invalid_argument("La empresa ya pertenece a otra central regional");
-    
-    empresas.insert(empresa);
-    empresa.cambiarOcupada(true);
-    cout<<"Empresa agregada con exito"<<endl;
-}
 
 int CentralRegional::getCantEmpleados() const{
     return gerentesAlto.size() + gerentesMedio.size();
