@@ -11,6 +11,7 @@
 class EntidadOrganizativa{
     protected:
         std::string nombre;
+        //cambiar este puntero
         std::vector<std::shared_ptr<EntidadOrganizativa>> subentidades; //[inf] uso con punteros para evitar instancias de clase
     
     public:
@@ -19,8 +20,8 @@ class EntidadOrganizativa{
         
         //metodos virtuales puros
         virtual std::string getNombre() const = 0;
-        virtual void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>) = 0;
-        virtual int contarSubentidades()const = 0;
+        virtual void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>);
+        virtual int contarSubentidades()const;
         
         //destructor
         virtual ~EntidadOrganizativa() = default;    
@@ -45,8 +46,8 @@ class Empresa: public EntidadOrganizativa{
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override ; //VER COMO BORAR ESTOOOOOOOOOOO
-        int contarSubentidades() const override;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override = delete;
+        int contarSubentidades() const override = delete;
 
         //metodos propios
         void cambiarOcupada(bool);
