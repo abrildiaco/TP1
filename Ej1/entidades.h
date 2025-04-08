@@ -32,7 +32,7 @@ class CentralRegional;
 
 class Empresa: public EntidadOrganizativa{
     private:
-    //ABGREGAR EL DELETE ACA DEL VECTOR
+    //ABGREGAR EL DELETE ACA DEL VECTOR???????????????????????
         std::vector<Departamento> departamentos; //[1, inf]
     
     public:
@@ -41,8 +41,8 @@ class Empresa: public EntidadOrganizativa{
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>) override;
-        int contarSubentidades() const override;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override = delete;
+        int contarSubentidades() const override = delete;
 
         //métodos/atributos propios
         bool ocupada; //atributo para cumplir con la composicion

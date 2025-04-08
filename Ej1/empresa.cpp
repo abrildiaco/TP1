@@ -23,16 +23,16 @@ Empresa::Empresa(string unNombre, string unaDireccion, class Departamento unDept
 
 string Empresa::getNombre()const {return nombre;}
 
-void Empresa::agregarSubentidad(shared_ptr<EntidadOrganizativa> subentidad){
-    subentidades.push_back(move(subentidad));
-    cout<<"Subentidad agregada con exito"<<endl;
-    return;
-}
+// void Empresa::agregarSubentidad(shared_ptr<EntidadOrganizativa> subentidad){
+//     subentidades.push_back(move(subentidad));
+//     cout<<"Subentidad agregada con exito"<<endl;
+//     return;
+// }
 
 
-int Empresa::contarSubentidades() const{
-    return subentidades.size();
-}
+// int Empresa::contarSubentidades() const{
+//     return subentidades.size();
+// }
 
 //sobrecarga de operador <
 

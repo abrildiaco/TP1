@@ -65,6 +65,9 @@ vector<string> CentralRegional::getEmpNames() const{
 }
 
 void CentralRegional::contratarGerenteAlto(GerenteAlto& gerente_alto){
+    if(gerentesAlto.size() == 20)
+        throw invalid_argument("No hay lugar para mas Gerentes Alto");
+
     if (gerente_alto.contratado == true)
         throw invalid_argument("La persona a contratar ya pertenece a una central regional");
     
@@ -75,8 +78,11 @@ void CentralRegional::contratarGerenteAlto(GerenteAlto& gerente_alto){
 
 
 void CentralRegional::contratarGerenteMedio(GerenteMedio& gerente_medio){
+    if(gerentesMedio.size() == 20)
+        throw invalid_argument("No hay lugar para mas Gerentes Medio");
+
     if (gerente_medio.contratado == true)
-    throw invalid_argument("La persona a contratar ya pertenece a una central regional");
+        throw invalid_argument("La persona a contratar ya pertenece a una central regional");
 
     gerentesMedio.push_back(gerente_medio);
     gerente_medio.contratado = true;
