@@ -13,20 +13,22 @@ class Departamento{
     
     public:
         //constructor
-        Departamneto(std::string, std::string); //nombre, ubi
+        Departamento(std::string, std::string); //nombre, ubi
 
         //metodos/atributos
+        bool ocupado; //atributo para cumplir con la composicion
         std::string nombre;
         std::string ubicacion;
         
-        static int contarEmpleados() const; //STATIC - se instancia afuera
+        void cambiarOcupado(bool);
+        static int contarEmpleados(); //STATIC - se instancia afuera
         std::vector<Empleado> getEmployees() const;
         bool contratarEmpleado(Empleado&);
         bool despedirEmpleado(Empleado&);
 
         //destructor
         ~Departamento() = default;
-}
+};
 
 /*
 

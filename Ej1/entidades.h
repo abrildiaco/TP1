@@ -11,7 +11,7 @@
 class EntidadOrganizativa{
     protected:
         std::string nombre;
-        std::set<EntidadOrganizativa> subentidades; //[inf]
+        std::vector<std::shared_ptr<EntidadOrganizativa>> subentidades; //[inf] uso con punteros para evitar instancias de clase
     
     public:
         //condtructor    
@@ -19,7 +19,7 @@ class EntidadOrganizativa{
         
         //metodos virtuales puros
         virtual std::string getNombre() const = 0;
-        virtual void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>) = 0;
+        virtual void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>) = 0;
         virtual int contarSubentidades()const = 0;
         
         //destructor
@@ -28,25 +28,37 @@ class EntidadOrganizativa{
 
 //CLASES DERIVADAS
 
+class CentralRegional;
+
 class Empresa: public EntidadOrganizativa{
     private:
-        std::vector<std::Departamento> departamentos; //[1, inf]
+        std::vector<Departamento> departamentos; //[1, inf]
     
     public:
         //constructor
-        Empresa(std::string, std::string, Departamento::Departamento);//falta algo
+        Empresa(std::string, std::string, Departamento);//falta algo
+
+        // //constructor de cpia para poder usar set sin punteros (no se piden punteroas en la consigna)
+        // Empresa(const Empresa&);
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agrgarSubentidad(std::unique_ptr<EntidadOrganizativa>) override;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>) override;
         int contarSubentidades() const override;
 
         //métodos/atributos propios
+        bool ocupada; //atributo para cumplir con la composicion
         std::string direccion;
-        void agregarDep(const Departamento&);
-        Departamento::Departamento getDepByName(std::string) const;
-        std::string getDepNames() const;
 
+        void cambiarOcupada(bool);
+        void agregarDep(Departamento&);
+        Departamento getDepByName(std::string) const;
+        std::vector<std::string> getDepNames() const;
+
+        //sobrecarga de operador < para poder usar set
+        bool operator<(const Empresa&)const;
+        
+        //destructor
         ~Empresa() = default;
 };
 
@@ -54,8 +66,8 @@ class Empresa: public EntidadOrganizativa{
 class CentralRegional: public EntidadOrganizativa{
     private:
         int cantEmpleados;
-        std::vector<std::GerenteAlto> gerentesAlto; //[1, 5]
-        std::vector<std::GerenteMedio> gerentesMedio; //[1, 20]
+        std::vector<GerenteAlto> gerentesAlto; //[1, 5]
+        std::vector<GerenteMedio> gerentesMedio; //[1, 20]
         std::set<Empresa> empresas; //unique y ordenado [1, inf]
         
     public:
@@ -64,18 +76,20 @@ class CentralRegional: public EntidadOrganizativa{
         
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agrgarSubentidad(EntidadOrganizativa&)const override;
+        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa> ) override;
         int contarSubentidades() const override;
         
         //métodos/atributos propios
         std::set<std::string> pais; //unique y ordenado
         
-        void agregarEmpresa()const;
+        void agregarEmpresa(Empresa&);
         int getCantEmpleados() const;
-        std::vector<string> getEmpNames() const; //[1, inf]
+        std::vector<std::string> getEmpNames() const; //[1, inf]
+        void contratarGerenteAlto(GerenteAlto&);
+        void contratarGerenteMedio(GerenteMedio&);
         std::vector<GerenteAlto> getGerenteAlto() const;
         std::vector<GerenteMedio> getGerenteMedio() const;
-
+        
         ~CentralRegional() = default;
 };
     

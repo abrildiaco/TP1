@@ -1,20 +1,26 @@
+#include "personal.h"
 #include <string>
 using namespace std;
 
 //EMPLEADO
 
 //constructor
-Empleado:: Empleado(string unNombre, string unPuesto, int unaAnt, float unSalario)
-:nombre(unNombre), puesto(unPuesto), antiguedad(unaAnt), salario(unSalario){}
+Empleado::Empleado(string unNombre, string unPuesto, int unaAnt, float unSalario)
+    :nombre(unNombre), puesto(unPuesto), antiguedad(unaAnt), salario(unSalario), contratado(false){}
 
 //metodos
 int Empleado::getAntiguedad() const {return antiguedad;}
-bool updateSalario(float nuevo_salario){
+
+void Empleado::cambiarContratado(bool cambio){
+    contratado = cambio;
+}
+
+
+bool Empleado::updateSalario(float nuevo_salario){
     salario = nuevo_salario;
     return true;
 }
 
-//privado
 float Empleado::getSalario() const{
     return salario;
 }

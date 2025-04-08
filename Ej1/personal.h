@@ -14,9 +14,11 @@ class Empleado{
         Empleado(std::string, std::string, int, float); //nombre, puesto, antiguedad, salario
         
         //metodos/atributos
+        bool contratado; //atributo para cumplir con la composicion
         std::string nombre;
         std::string puesto;
         
+        void cambiarContratado(bool);
         int getAntiguedad() const;
         float getSalario() const;
         bool updateSalario(float);
@@ -24,7 +26,7 @@ class Empleado{
         //destructor
         virtual ~Empleado() = default;
 
-}
+};
 /*
 RELACION DE COMPOSICIÓN CON DEPARTAMENTO
 los departamentos pueden tener muchos empleados, pero los empleados solo
