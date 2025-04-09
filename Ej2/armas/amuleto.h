@@ -4,15 +4,12 @@
 #include "armas.h"
 
 //material
-class Baston: public ItemMagico{
+class Amuleto: public ItemMagico{
     private:
-        float contador_daño;
-        bool tiene_gema; //la gema le otorga mas poder al baston
-        bool ulti; //cuando llegas a 50 puntos de daños causados, el baston dispara un poder que causa 50 de daño
-    
+        bool suerte; //si te toca con suerte haces mucho daño, sino poco
     public:
         //constructor
-        Baston(std::string,  int, bool); //nombre, durabilidad, gema
+        Amuleto(std::string,  int, bool); //nombre, durabilidad, suerte
 
         //metodos
         void getInfo()const override; 
@@ -22,9 +19,8 @@ class Baston: public ItemMagico{
         void Usar() override;
         float getAutoDano()const override;
 
-        bool hasGema() const;
-
+        bool hasSuerte()const;
 
         //destructor
-        ~Baston();
+        ~Amuleto();
 };

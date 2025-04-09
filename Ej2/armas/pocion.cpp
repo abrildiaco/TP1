@@ -1,5 +1,6 @@
-#include"armas.h"
+#include "armas.h"
 #include "pocion.h"
+#include "libro_hechizos.h"
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -7,7 +8,7 @@
 using namespace std;
 
 //constructor
-Pocion::Pocion( int durabilidad_, string nombre_, string tipo_)
+Pocion::Pocion(string nombre_, int durabilidad_, string tipo_)
     :ItemMagico(nombre_, durabilidad_), tipo(tipo_), duracion_efecto(2) {
         if(tipo_ != "veneno" || tipo_ != "inmunidad")
             throw invalid_argument("No existe ese tipo de pocion");
@@ -22,6 +23,7 @@ Pocion::Pocion( int durabilidad_, string nombre_, string tipo_)
             daño = 0;
             auto_daño = 0;
         }
+        cout<<"Pocion creada"<<endl;
     }
 
 //metodos
@@ -54,7 +56,6 @@ void Pocion::Usar(){
     }
 
     if(durabilidad == 0){
-        uso = false;
         cout<<"Ya no tienes mas pocion"<<endl;
     }
 }

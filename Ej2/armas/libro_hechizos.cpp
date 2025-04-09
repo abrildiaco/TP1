@@ -36,7 +36,7 @@ LibroHechizos::LibroHechizos(string nombre_, int durabilidad_)
             daño = 0;
             auto_daño = 0;
         }
-
+        cout<<"Libro de Hechizos creado"<<endl;
     }
 
 //metodos
@@ -82,13 +82,15 @@ void LibroHechizos::Usar(){
             auto_daño++;
         }
         durabilidad--;
+        uso = true;
     }
 
     if(durabilidad == 0){
-        uso = false;
         cout<<"El Libro de Hechizos ya no sirve"<<endl;
     }
 }
+
+float LibroHechizos::getAutoDano()const{ return auto_daño;}
 
 vector<string> LibroHechizos::getHechizos()const{return hechizos;}
 

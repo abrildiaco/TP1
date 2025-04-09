@@ -15,5 +15,3 @@ ItemMagico::ItemMagico(string nombre_, int durabilidad_)
         if(nombre_ != "Pocion" || nombre_ != "Baston" || nombre_ != "Libro de Hechizos" || nombre_ != "Amuleto")
             throw invalid_argument("No existe esa arma mágica");
 }
-
-

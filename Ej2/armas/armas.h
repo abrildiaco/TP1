@@ -44,6 +44,7 @@ class ItemMagico: public Armas{
 
         //destructor
         virtual ~ItemMagico() = default;
+        
 };
 
 class ArmaCombate: public Armas{
@@ -73,6 +74,6 @@ class ArmaCombate: public Armas{
         virtual void Reparar() = 0; //la puedo reparar si no esta muy dañada
 
         //destructor
-        ~ArmaCombate() = default;
+        virtual ~ArmaCombate() = default;
 
 };
