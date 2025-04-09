@@ -31,6 +31,8 @@ int Baston::getDurabilidad()const{return durabilidad;}
 
 float Baston::getDano() const{return daño;}
 
+string Baston::getTipo() {return tipo_arma;}
+
 void Baston::Usar(){ 
     if(durabilidad >0 ){
         if(contador_daño < 50){

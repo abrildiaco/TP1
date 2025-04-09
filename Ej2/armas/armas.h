@@ -10,6 +10,7 @@ class Armas{
         virtual std::string getNombre()const = 0; //me devuelve el nombre del arma
         virtual int getDurabilidad()const = 0; //me devuelve la vida del arma en golpes
         virtual float getDano() const = 0; //me devuelve cuanto daño hace el arma
+        virtual std::string getTipo() = 0; //si el arma es magica ode combate
         virtual void Usar() = 0;
 
         virtual ~Armas() = default; 
@@ -38,6 +39,7 @@ class ItemMagico: public Armas{
         virtual std::string getNombre()const override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
+        virtual std::string getTipo() override;
         virtual void Usar() override;
         
         virtual float getAutoDano()const = 0; 
@@ -51,27 +53,26 @@ class ArmaCombate: public Armas{
     protected:
         std::string tipo_arma; //si es item magico o de combate
         std::string nombre;
-        std::string material; //diamante, hierro, acero....
         int durabilidad;//esta medida en usos
-        float peso; //si el arma es muy pesada, la controlo peor
         float daño;
+        float peso; //valor entre [1, 5] 1 es el mas liviano
     
     public:
         bool uso; //determina si mi arma fue usada
 
         //constructor
-        ArmaCombate(std::string, std::string, int, float, float);//nombre, material, durabilidad, peso, daño
+        ArmaCombate(std::string, int, float);//nombre, durabilidad, peso
     
         //metodos
         virtual void getInfo()const override; 
         virtual std::string getNombre()const override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
+        virtual std::string getTipo() override;
         virtual void Usar() override;
 
-        virtual std::string getMaterial()const = 0;
         virtual float getPeso()const = 0;
-        virtual void Reparar() = 0; //la puedo reparar si no esta muy dañada
+        virtual void Afilar() = 0;
 
         //destructor
         virtual ~ArmaCombate() = default;

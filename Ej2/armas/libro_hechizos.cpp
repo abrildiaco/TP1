@@ -1,4 +1,4 @@
-#include"armas.h"
+#include "armas.h"
 #include "libro_hechizos.h"
 #include <iostream>
 #include <string>
@@ -57,6 +57,8 @@ string LibroHechizos::getNombre()const{return nombre;}
 int LibroHechizos::getDurabilidad()const{return durabilidad;}
 
 float LibroHechizos::getDano() const{return daño;}
+
+string LibroHechizos::getTipo() {return tipo_arma;}
 
 void LibroHechizos::Usar(){ 
     if(durabilidad >0 ){

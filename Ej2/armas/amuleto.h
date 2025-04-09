@@ -17,6 +17,7 @@ class Amuleto: public ItemMagico{
         int getDurabilidad()const override;
         float getDano() const override;
         void Usar() override;
+        virtual std::string getTipo() override;
         float getAutoDano()const override;
 
         bool hasSuerte()const;

@@ -37,11 +37,13 @@ void Pocion::getInfo()const{
 
 }
 
-std::string Pocion::getNombre()const{return nombre;}
+string Pocion::getNombre()const{return nombre;}
 
 int Pocion::getDurabilidad()const{return durabilidad;}
 
 float Pocion::getDano() const{return daño;}
+
+string Pocion::getTipo() {return tipo_arma;}
 
 void Pocion::Usar(){ 
     if(durabilidad >0 ){
@@ -62,7 +64,7 @@ void Pocion::Usar(){
 
 float Pocion::getAutoDano()const{return auto_daño;}
 
-std::string Pocion::getTipo() const{return tipo;}
+string Pocion::getTipo() const{return tipo;}
 
 int Pocion::getDuracionEfecto()const{return duracion_efecto;}
 
