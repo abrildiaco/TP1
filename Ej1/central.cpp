@@ -26,16 +26,17 @@ string CentralRegional::getNombre() const{
     return nombre;
 }
 
-void CentralRegional::agregarSubentidad(shared_ptr<EntidadOrganizativa> subentidad){ //CAMBIAR ESTO ED PUNTEROS ARREGLAR!!!!!!!!!!!!!!
-    
-    if (empresa.ocupada == true)
+void CentralRegional::agregarSubentidad(EntidadOrganizativa& subentidad){ 
+    //PREGUNTAAAAAR
+    //no se como castear esoooooooo
+    if (subentidad.ocupada == true)
         throw invalid_argument("La empresa ya pertenece a otra central regional");
     
-    empresas.insert(empresa);
-    empresa.cambiarOcupada(true);
+    empresas.insert(subentidad);
+    subentidad.cambiarOcupada(true);
     cout<<"Empresa agregada con exito"<<endl;
     
-    subentidades.push_back(move(subentidad));
+    subentidades.push_back(subentidad);
     cout<<"Subentidad agregada con exito"<<endl;
     return;
 }

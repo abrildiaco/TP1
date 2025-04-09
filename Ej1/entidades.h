@@ -7,12 +7,18 @@
 #include "personal.h"
 #include "departamento.h"
 
+/*
+Voy a trabajar con unique pointers. De esta manera, puedo cumplir con las reglas de composición,
+evitar instanciaciones de la clase EntidadOrganizativa y hacer dynamic cast. De otra manera,
+no podria cumplir con lo pedido
+*/ //PREGUNTAAAAAAAAAR
+
 //CLASE ABSTRACTA
 class EntidadOrganizativa{
     protected:
         std::string nombre;
         //cambiar este puntero
-        std::vector<std::shared_ptr<EntidadOrganizativa>> subentidades; //[inf] uso con punteros para evitar instancias de clase
+        std::vector<EntidadOrganizativa> subentidades; //[inf]
     
     public:
         //condtructor    
@@ -20,7 +26,7 @@ class EntidadOrganizativa{
         
         //metodos virtuales puros
         virtual std::string getNombre() const = 0;
-        virtual void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>);
+        virtual void agregarSubentidad(EntidadOrganizativa&);
         virtual int contarSubentidades()const;
         
         //destructor
@@ -46,8 +52,10 @@ class Empresa: public EntidadOrganizativa{
 
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override = delete;
-        int contarSubentidades() const override = delete;
+        
+        //estas dos funciones no se usan
+        // void agregarSubentidad(std::shared_ptr<EntidadOrganizativa>)override = delete; 
+        // int contarSubentidades() const override = delete;
 
         //metodos propios
         void cambiarOcupada(bool);
@@ -79,7 +87,7 @@ class CentralRegional: public EntidadOrganizativa{
         
         //métodos a sobreescribir
         std::string getNombre() const override;
-        void agregarSubentidad(std::shared_ptr<EntidadOrganizativa> ) override; //FIJARME SI ANDA SIN PUNTEROS DESABILITANDO LO OTRO
+        void agregarSubentidad(EntidadOrganizativa& ) override; //FIJARME SI ANDA SIN PUNTEROS DESABILITANDO LO OTRO
         int contarSubentidades() const override;
         
         //metodos propios
