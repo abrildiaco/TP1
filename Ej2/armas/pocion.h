@@ -18,7 +18,7 @@ class Pocion: public ItemMagico{
 
     public:
         //constructor
-        Pocion(std::string, int, std::string); //nombre,durabilidad, tipo
+        Pocion(int, std::string, std::string); //nombre, durabilidad, tipo
 
         //metodos
         void getInfo()const override; 

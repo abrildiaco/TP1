@@ -20,6 +20,7 @@ class Armas{
 class ItemMagico: public Armas{
 
     protected:
+        std::string tipo_arma; //si es item magico o de combate
         std::string nombre;
         int durabilidad;//esta medida en usos
         float daño;
@@ -47,6 +48,7 @@ class ItemMagico: public Armas{
 
 class ArmaCombate: public Armas{
     protected:
+        std::string tipo_arma; //si es item magico o de combate
         std::string nombre;
         std::string material; //diamante, hierro, acero....
         int durabilidad;//esta medida en usos
