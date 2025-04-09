@@ -7,7 +7,8 @@
 /*
 dos tipos de pociones: veneno, inmunidad
 si es de inmunidad y la uso, no puedo recibir daño (ni me hago auto daño)
-todas las pociones le hacen daño al oponente, tanto las de veneno como las de inmunidad.
+solo la pocion de veneno le hace daño al oponente.
+los efectos de la poción duran dos rondas.
 */
 
 class Pocion: public ItemMagico{

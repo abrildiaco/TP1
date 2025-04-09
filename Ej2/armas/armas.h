@@ -30,7 +30,7 @@ class ItemMagico: public Armas{
 
         //constructor
         ItemMagico(std::string, int); //nombre, durabilidad
-        //el daño y el auto daño pueden depender del tipo
+        //el daño y el auto daño pueden depender del tipo. los instancio despues
 
         //metodos
         virtual void getInfo()const override; 

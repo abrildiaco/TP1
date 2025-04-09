@@ -8,7 +8,7 @@ using namespace std;
 
 //constructor
 Pocion::Pocion(std::string nombre_, int durabilidad_, string tipo_)
-    :ItemMagico(nombre_, durabilidad_), tipo(tipo_), duracion_efecto(3) {
+    :ItemMagico(nombre_, durabilidad_), tipo(tipo_), duracion_efecto(2) {
         if(tipo_ != "veneno" || tipo_ != "inmunidad")
             throw invalid_argument("No existe ese tipo de pocion");
 
@@ -17,7 +17,9 @@ Pocion::Pocion(std::string nombre_, int durabilidad_, string tipo_)
             auto_daño = 1;
         }
         else if(tipo == "inmunidad") {
-            daño = 5;
+            //la pocion no hace daño en sí. el daño dependerá
+            //del golpe elegido en la batalla
+            daño = 0;
             auto_daño = 0;
         }
     }
