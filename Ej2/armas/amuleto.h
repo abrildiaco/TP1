@@ -12,12 +12,12 @@ class Amuleto: public ItemMagico{
         Amuleto(std::string,  int, bool); //nombre, durabilidad, suerte
 
         //metodos
-        void getInfo()const override; 
-        std::string getNombre()const override;
-        int getDurabilidad()const override;
-        float getDano() const override;
+        // std::string getNombre()const override;
+        // int getDurabilidad()const override;
+        // float getDano() const override;
+        // virtual std::string getTipo() override;
         void Usar() override;
-        virtual std::string getTipo() override;
+        void getInfo()const override; 
         float getAutoDano()const override;
 
         bool hasSuerte()const;

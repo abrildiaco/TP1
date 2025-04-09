@@ -35,12 +35,12 @@ class ItemMagico: public Armas{
         //el daño y el auto daño pueden depender del tipo. los instancio despues
 
         //metodos
-        virtual void getInfo()const override; 
         virtual std::string getNombre()const override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
         virtual std::string getTipo() override;
-        virtual void Usar() override;
+        virtual void getInfo()const override = 0; 
+        virtual void Usar() override = 0;
         
         virtual float getAutoDano()const = 0; 
 
@@ -64,12 +64,12 @@ class ArmaCombate: public Armas{
         ArmaCombate(std::string, int, float);//nombre, durabilidad, peso
     
         //metodos
-        virtual void getInfo()const override; 
         virtual std::string getNombre()const override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
         virtual std::string getTipo() override;
-        virtual void Usar() override;
+        virtual void getInfo()const override = 0;
+        virtual void Usar() override = 0;
 
         virtual float getPeso()const = 0;
         virtual void Afilar() = 0;

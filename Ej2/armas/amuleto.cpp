@@ -25,13 +25,13 @@ void Amuleto::getInfo()const{
 
 }
 
-string Amuleto::getNombre()const{return nombre;}
+// string Amuleto::getNombre()const{return nombre;}
 
-int Amuleto::getDurabilidad()const{return durabilidad;}
+// int Amuleto::getDurabilidad()const{return durabilidad;}
 
-float Amuleto::getDano() const{return daño;}
+// float Amuleto::getDano() const{return daño;}
 
-string Amuleto::getTipo() {return tipo_arma;}
+// string Amuleto::getTipo() {return tipo_arma;}
 
 
 void Amuleto::Usar(){ 

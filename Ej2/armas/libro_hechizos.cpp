@@ -52,13 +52,13 @@ void LibroHechizos::getInfo()const{
 
 }
 
-string LibroHechizos::getNombre()const{return nombre;}
+// string LibroHechizos::getNombre()const{return nombre;}
 
-int LibroHechizos::getDurabilidad()const{return durabilidad;}
+// int LibroHechizos::getDurabilidad()const{return durabilidad;}
 
-float LibroHechizos::getDano() const{return daño;}
+// float LibroHechizos::getDano() const{return daño;}
 
-string LibroHechizos::getTipo() {return tipo_arma;}
+// string LibroHechizos::getTipo() {return tipo_arma;}
 
 void LibroHechizos::Usar(){ 
     if(durabilidad >0 ){

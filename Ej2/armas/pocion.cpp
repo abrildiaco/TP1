@@ -10,7 +10,7 @@ using namespace std;
 //constructor
 Pocion::Pocion(string nombre_, int durabilidad_, string tipo_)
     :ItemMagico(nombre_, durabilidad_), tipo(tipo_), duracion_efecto(2) {
-        if(tipo_ != "veneno" || tipo_ != "inmunidad")
+        if(tipo_ != "veneno" && tipo_ != "inmunidad")
             throw invalid_argument("No existe ese tipo de pocion");
 
         if(tipo_ == "veneno"){
@@ -37,13 +37,13 @@ void Pocion::getInfo()const{
 
 }
 
-string Pocion::getNombre()const{return nombre;}
+// string Pocion::getNombre()const{return nombre;}
 
-int Pocion::getDurabilidad()const{return durabilidad;}
+// int Pocion::getDurabilidad()const{return durabilidad;}
 
-float Pocion::getDano() const{return daño;}
+// float Pocion::getDano() const{return daño;}
 
-string Pocion::getTipo() {return tipo_arma;}
+// string Pocion::getTipo() {return tipo_arma;}
 
 void Pocion::Usar(){ 
     if(durabilidad >0 ){

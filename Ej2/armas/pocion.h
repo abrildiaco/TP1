@@ -21,11 +21,11 @@ class Pocion: public ItemMagico{
         Pocion(std::string,  int, std::string); //nombre, durabilidad, tipo
 
         //metodos
+        // std::string getNombre()const override;
+        // int getDurabilidad()const override;
+        // float getDano() const override;
+        // virtual std::string getTipo() override;
         void getInfo()const override; 
-        std::string getNombre()const override;
-        int getDurabilidad()const override;
-        float getDano() const override;
-        virtual std::string getTipo() override;
         void Usar() override;
         float getAutoDano()const override;
 

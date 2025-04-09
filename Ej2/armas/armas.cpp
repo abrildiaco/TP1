@@ -12,11 +12,20 @@ ItemMagico::ItemMagico(string nombre_, int durabilidad_)
         if(durabilidad_ <0)
             throw invalid_argument("La durabilidad no puede ser negativa");
 
-        if(nombre_ != "Pocion" || nombre_ != "Baston" || nombre_ != "Libro de Hechizos" || nombre_ != "Amuleto")
+        if(nombre_ != "Pocion" && nombre_ != "Baston" && nombre_ != "Libro de Hechizos" && nombre_ != "ItemMagico")
             throw invalid_argument("No existe esa arma mágica");
 }
 
-ArmaCombate::ArmaCombate(string nombre_, int durabilidad_, float peso_);//nombre, durabilidad, peso
+string ItemMagico::getNombre()const{return nombre;}
+
+int ItemMagico::getDurabilidad()const{return durabilidad;}
+
+float ItemMagico::getDano() const{return daño;}
+
+string ItemMagico::getTipo() {return tipo_arma;}
+
+
+ArmaCombate::ArmaCombate(string nombre_, int durabilidad_, float peso_)//nombre, durabilidad, peso
     :tipo_arma("combate"), nombre(nombre_), durabilidad(durabilidad_), peso(peso_){
         
         if(peso_ <1)
@@ -25,6 +34,14 @@ ArmaCombate::ArmaCombate(string nombre_, int durabilidad_, float peso_);//nombre
         if(peso_ >5)
             throw invalid_argument("El peso debe ser menor a cinco");
 
-        if(nombre_ != "Hacha Simple" || nombre_ != "Hacha Doble" || nombre_ != "Espada" || nombre_ != "Lanza", nombre_ != "Garrote")
+        if(nombre_ != "Hacha Simple" && nombre_ != "Hacha Doble" && nombre_ != "Espada" && nombre_ != "Lanza" && nombre_ != "Garrote")
             throw invalid_argument("No existe esa arma mágica");
     }
+
+string ArmaCombate::getNombre()const{return nombre;}
+
+int ArmaCombate::getDurabilidad()const{return durabilidad;}
+
+float ArmaCombate::getDano() const{return daño;}
+
+string ArmaCombate::getTipo() {return tipo_arma;}

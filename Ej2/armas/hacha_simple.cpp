@@ -27,13 +27,13 @@ void HachaSimaple::getInfo()const{
 
 }
 
-string HachaSimaple::getNombre()const{return nombre;}
+// string HachaSimaple::getNombre()const{return nombre;}
 
-int HachaSimaple::getDurabilidad()const{return durabilidad;}
+// int HachaSimaple::getDurabilidad()const{return durabilidad;}
 
-float HachaSimaple::getDano() const{return daño;}
+// float HachaSimaple::getDano() const{return daño;}
 
-string HachaSimaple::getTipo() {return tipo_arma;}
+// string HachaSimaple::getTipo() {return tipo_arma;}
 
 void HachaSimaple::Usar(){ 
     if(durabilidad >0 ){
