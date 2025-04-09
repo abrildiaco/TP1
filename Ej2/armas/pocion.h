@@ -6,8 +6,7 @@
 
 /*
 dos tipos de pociones: veneno, inmunidad
-si es de inmunidad y la uso, no puedo recibir daño. Sin embargo, si no soy personaje magico,
-no recibo daño del contricante pero si del auto_daño
+si es de inmunidad y la uso, no puedo recibir daño (ni me hago auto daño)
 todas las pociones le hacen daño al oponente, tanto las de veneno como las de inmunidad.
 */
 
@@ -18,7 +17,7 @@ class Pocion: public ItemMagico{
 
     public:
         //constructor
-        Pocion(std::string, int, float, float, std::string, int); //nombre, encantamiento, durabilidad, auto_daño, daño, tipo, duracion_efecto
+        Pocion(std::string, int, std::string); //nombre,durabilidad, tipo
 
         //metodos
         void getInfo()const override; 

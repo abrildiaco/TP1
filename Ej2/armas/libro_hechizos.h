@@ -8,7 +8,7 @@ class LibroHechizos: public ItemMagico{
     private:
     public:
         //constructor
-        LibroHechizos(std::string, int, float, float, std::string, int); //nombre, encantamiento, durabilidad, auto_daño, daño, tipo, duracion_efecto
+        LibroHechizos(std::string, int); //nombre,durabilidad
 
         //metodos
         void getInfo()const override; 

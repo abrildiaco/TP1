@@ -6,11 +6,8 @@
 
 
 //constructor
-LibroHechizos::LibroHechizos(std::string nombre_, int durabilidad_, float auto_daño_, float daño_)
-    :ItemMagico(nombre_, durabilidad_, auto_daño_, daño_) {
-        if(auto_daño_ >= daño_)
-            throw invalid_argument("El daño no puede ser menor o igual al auto daño");
-        
+LibroHechizos::LibroHechizos(string nombre_, int durabilidad_)
+    :ItemMagico(nombre_, durabilidad_) {
     }
 
 //metodos

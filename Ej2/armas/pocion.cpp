@@ -7,13 +7,19 @@
 using namespace std;
 
 //constructor
-Pocion::Pocion(std::string nombre_, int durabilidad_, float auto_daño_, float daño_, string tipo_, int duracion_efecto_)
-    :ItemMagico(nombre_, durabilidad_, auto_daño_, daño_), tipo(tipo_), duracion_efecto(duracion_efecto_) {
-        if(auto_daño_ >= daño_)
-            throw invalid_argument("El daño no puede ser menor o igual al auto daño");
-        
+Pocion::Pocion(std::string nombre_, int durabilidad_, string tipo_)
+    :ItemMagico(nombre_, durabilidad_), tipo(tipo_), duracion_efecto(3) {
         if(tipo_ != "veneno" || tipo_ != "inmunidad")
             throw invalid_argument("No existe ese tipo de pocion");
+
+        if(tipo_ == "veneno"){
+            daño = 15;
+            auto_daño = 1;
+        }
+        else if(tipo == "inmunidad") {
+            daño = 5;
+            auto_daño = 0;
+        }
     }
 
 //metodos

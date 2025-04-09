@@ -22,15 +22,15 @@ class ItemMagico: public Armas{
     protected:
         std::string nombre;
         int durabilidad;//esta medida en usos
-        float auto_daño; //como son mágicas, me hacen daño al usarlas si no soy un personaje magico.
         float daño;
+        float auto_daño; //como son mágicas, me hacen daño al usarlas si no soy un personaje magico.    
     
     public:
-
         bool uso; //determina si mi arma fue usada
 
         //constructor
-        ItemMagico(std::string, int, float, float); //nombre, durabilidad, auto_daño, daño
+        ItemMagico(std::string, int); //nombre, durabilidad
+        //el daño y el auto daño pueden depender del tipo
 
         //metodos
         virtual void getInfo()const override; 
