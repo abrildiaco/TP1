@@ -5,7 +5,7 @@
 class Lanza: public ArmaCombate{
     protected:
         int filo; //inician con filo de 10, en cada golpe baja el filo y daña menos
-        int puntería; //en cada uso, se genera una variable random entre [0, 5]
+        int punteria; //en cada uso, se genera una variable random entre [0, 5]
                     //que determina el daño extra que hace la lanza segun la punteria
     public:
         //constructor

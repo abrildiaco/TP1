@@ -14,7 +14,6 @@ using namespace std;
 LibroHechizos::LibroHechizos(string nombre_, int durabilidad_)
     :ItemMagico(nombre_, durabilidad_), hechizos({"congelamiento", "daño por daño", "curacion"}) {
         
-        srand(time(0)); // Inicializa la semilla
         //genero si el libro esta maldito o no
         bool maldito_ = rand() % 2; //valores entre 0 y 1
         maldito = maldito_;

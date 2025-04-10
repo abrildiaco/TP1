@@ -7,6 +7,8 @@
 #include "hacha_simple.hpp"
 #include "hacha_doble.hpp"
 #include "espada.hpp"
+#include "lanza.hpp"
+#include "garrote.hpp"
 
 using namespace std;
 
@@ -14,6 +16,9 @@ using namespace std;
 int main(){
 
     cout<<"inicio prueba de armas"<<endl;
+
+    srand(time(0)); // Inicializa la semilla
+
 
     // cout<<"\n== Pocion prueba =="<<endl;
     // Pocion p("Pocion", 3);
@@ -106,19 +111,54 @@ int main(){
     
     // a.Usar();
 
-    cout<<"\n== espada prueba =="<<endl;
-    Espada a("Espada", 3, 2);
+    // cout<<"\n== espada prueba =="<<endl;
+    // Espada a("Espada", 3, 2);
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Afilar();
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Usar();
+
+    // return 0;
+
+    // cout<<"\n== lanza prueba =="<<endl;
+    // Lanza a("Lanza", 3, 2);
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Afilar();
+    // a.getInfo();
+    // a.Usar();
+
+    // a.getInfo();
+    // a.Usar();
+
+    // return 0;
+    
+    
+    cout<<"\n== garrote prueba =="<<endl;
+    Garrote a("Garrote", 3, 5);
     a.getInfo();
     a.Usar();
     
     a.getInfo();
     a.Usar();
     
-    a.Afilar();
     a.getInfo();
     a.Usar();
-    
+
+    a.getInfo();
     a.Usar();
 
     return 0;
+    
 }

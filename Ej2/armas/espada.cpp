@@ -14,7 +14,7 @@ Espada::Espada(string nombre_, int durabilidad_, float peso_)
     :ArmaCombate(nombre_, durabilidad_, peso_), filo(10) {
         
         if(peso < 1 || peso > 5)
-            throw invalid_argument("El peso va de 0 a 5");
+            throw invalid_argument("El peso va de 1 a 5");
 
         srand(time(0)); // Inicializa la semilla
         //genero si las espada es de diamante
@@ -91,5 +91,5 @@ bool Espada::hasDiamante()const{return diamante;}
 
 //destructor
 Espada::~Espada(){
-    cout<<"\nEl Espada ha sido destruida"<<endl;
+    cout<<"\nLa Espada ha sido destruida"<<endl;
 }

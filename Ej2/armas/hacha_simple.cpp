@@ -12,7 +12,7 @@ HachaSimple::HachaSimple(string nombre_, int durabilidad_, float peso_)
     :ArmaCombate(nombre_, durabilidad_, peso_), filo(10) {
         
         if(peso < 1 || peso > 5)
-            throw invalid_argument("El peso va de 0 a 5");
+            throw invalid_argument("El peso va de 1 a 5");
 
         //si es más pesada genera más daño
         if(peso < 3)
