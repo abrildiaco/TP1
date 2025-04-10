@@ -8,9 +8,9 @@ class Armas{
     public:
         virtual void getInfo()const = 0; //me muestre una descripcion e informacion del arma
         virtual std::string getNombre()const = 0; //me devuelve el nombre del arma
+        virtual std::string getTipo() = 0; //si el arma es magica ode combate
         virtual int getDurabilidad()const = 0; //me devuelve la vida del arma en golpes
         virtual float getDano() const = 0; //me devuelve cuanto daño hace el arma
-        virtual std::string getTipo() = 0; //si el arma es magica ode combate
         virtual void Usar() = 0;
 
         virtual ~Armas() = default; 
@@ -36,9 +36,9 @@ class ItemMagico: public Armas{
 
         //metodos
         virtual std::string getNombre()const override;
+        virtual std::string getTipo() override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
-        virtual std::string getTipo() override;
         virtual void getInfo()const override = 0; 
         virtual void Usar() override = 0;
         
@@ -65,9 +65,9 @@ class ArmaCombate: public Armas{
     
         //metodos
         virtual std::string getNombre()const override;
+        virtual std::string getTipo() override;
         virtual int getDurabilidad()const override;
         virtual float getDano() const override;
-        virtual std::string getTipo() override;
         virtual void getInfo()const override = 0;
         virtual void Usar() override = 0;
 
