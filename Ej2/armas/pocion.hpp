@@ -3,7 +3,7 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include "armas.h"
+#include "armas.hpp"
 
 /*
 Existen dos tipos de pociones: veneno, inmunidad

@@ -1,6 +1,6 @@
 #include <string>
-#include "armas.h"
-#include "baston.h"
+#include "armas.hpp"
+#include "baston.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -25,6 +25,7 @@ void Baston::getInfo()const{
     cout<<"\n== Baston magico =="<<endl;
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
+    cout<<"Daño acumulado al oponente: "<<contador_daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
     cout<<"Tiene gema: "<<tiene_gema<<endl;
 

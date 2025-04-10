@@ -1,10 +1,12 @@
 #include <iostream>
-#include "armas.h"
-#include "libro_hechizos.h"
-#include "pocion.h"
-#include "baston.h"
-#include "amuleto.h"
-#include "hacha_simple.h"
+#include "armas.hpp"
+#include "libro_hechizos.hpp"
+#include "pocion.hpp"
+#include "baston.hpp"
+#include "amuleto.hpp"
+#include "hacha_simple.hpp"
+#include "hacha_doble.hpp"
+
 using namespace std;
 
 
@@ -75,8 +77,22 @@ int main(){
     
     // a.Usar();
 
-    cout<<"\n== Hacha simple prueba =="<<endl;
-    HachaSimple a("Hacha Simple", 3, 1);
+    // cout<<"\n== Hacha simple prueba =="<<endl;
+    // HachaSimple a("Hacha Simple", 3, 1);
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Afilar();
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Usar();
+
+    cout<<"\n== Hacha doble prueba =="<<endl;
+    HachaDoble a("Hacha Doble", 3, 5);
     a.getInfo();
     a.Usar();
     

@@ -1,5 +1,5 @@
-#include "armas.h"
-#include "libro_hechizos.h"
+#include "armas.hpp"
+#include "libro_hechizos.hpp"
 #include <iostream>
 #include <string>
 #include <vector>

@@ -1,6 +1,5 @@
-#include "armas.h"
-#include "Amuleto.h"
-#include "libro_hechizos.h"
+#include "armas.hpp"
+#include "amuleto.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

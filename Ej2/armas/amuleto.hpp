@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "armas.h"
+#include "armas.hpp"
 
 //material
 class Amuleto: public ItemMagico{

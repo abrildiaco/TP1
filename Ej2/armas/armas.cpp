@@ -1,4 +1,4 @@
-#include"armas.h"
+#include"armas.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -8,7 +8,7 @@ using namespace std;
 //constructores clases abstractas
 
 ItemMagico::ItemMagico(string nombre_, int durabilidad_)
-    :tipo_arma("magica"), nombre(nombre_), durabilidad(durabilidad_) {
+    :tipo_arma("magica"), nombre(nombre_), durabilidad(durabilidad_), uso(false) {
         if(durabilidad_ <0)
             throw invalid_argument("La durabilidad no puede ser negativa");
 
@@ -26,7 +26,7 @@ string ItemMagico::getTipo() {return tipo_arma;}
 
 
 ArmaCombate::ArmaCombate(string nombre_, int durabilidad_, float peso_)//nombre, durabilidad, peso
-    :tipo_arma("combate"), nombre(nombre_), durabilidad(durabilidad_), peso(peso_){
+    :tipo_arma("combate"), nombre(nombre_), durabilidad(durabilidad_), peso(peso_), uso(false){
         
         if(peso_ <1)
             throw invalid_argument("El peso debe ser mayor a uno");
