@@ -6,16 +6,12 @@
 //material
 class Amuleto: public ItemMagico{
     private:
-        bool suerte; //si te toca con suerte haces mucho daño, sino poco
+        bool suerte; //si te toca con suerte haces mucho daño, sino poco (aleatorio)
     public:
         //constructor
-        Amuleto(std::string,  int, bool); //nombre, durabilidad, suerte
+        Amuleto(std::string,  int); //nombre, durabilidad
 
         //metodos
-        // std::string getNombre()const override;
-        // int getDurabilidad()const override;
-        // float getDano() const override;
-        // virtual std::string getTipo() override;
         void Usar() override;
         void getInfo()const override; 
         float getAutoDano()const override;

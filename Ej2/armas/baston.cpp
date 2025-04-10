@@ -52,6 +52,8 @@ void Baston::Usar(){
 
     durabilidad--;
     uso = true;
+
+    return;
 }
 
 float Baston::getAutoDano()const{return auto_daño;}

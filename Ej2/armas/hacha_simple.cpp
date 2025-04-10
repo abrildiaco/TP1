@@ -11,15 +11,24 @@ using namespace std;
 
 
 //constructor
-HachaSimaple::HachaSimaple(string nombre_, int durabilidad_, float peso_)
+HachaSimple::HachaSimple(string nombre_, int durabilidad_, float peso_)
     :ArmaCombate(nombre_, durabilidad_, peso_), filo(10) {
-        daño = 15;
-        cout<<"Hacha simple creada"<<endl;
+        
+        if(peso < 1 || peso > 5)
+            throw invalid_argument("El peso va de 0 a 1");
+
+        //si es más pesada genera más daño
+        if(peso < 3)
+            daño = 12;
+        else if(peso >= 3)
+            daño = 16;
+        
+        cout<<"\nHacha simple creada"<<endl;
     }
 
 //metodos
-void HachaSimaple::getInfo()const{
-    cout<<"== Hacha simple =="<<endl;
+void HachaSimple::getInfo()const{
+    cout<<"\n== Hacha simple =="<<endl;
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Peso: "<<peso<<endl;
@@ -27,35 +36,31 @@ void HachaSimaple::getInfo()const{
 
 }
 
-// string HachaSimaple::getNombre()const{return nombre;}
-
-// int HachaSimaple::getDurabilidad()const{return durabilidad;}
-
-// float HachaSimaple::getDano() const{return daño;}
-
-// string HachaSimaple::getTipo() {return tipo_arma;}
-
-void HachaSimaple::Usar(){ 
-    if(durabilidad >0 ){
+void HachaSimple::Usar(){ 
+    if(durabilidad == 0){
+        cout<<"\nEl Hacha Simple ya no sirve"<<endl;
+        return;
+    }
+    else if(durabilidad >0 ){
         filo--;
         durabilidad--;
         uso = true;
     }
 
-    if(durabilidad == 0){
-        cout<<"El Hacha simple ya no sirve"<<endl;
-    }
+    cout<<"\nEl Hacha simple ha sido usada"<<endl;
+
+    return;
 }
 
-float HachaSimaple::getPeso()const{return peso;}
+float HachaSimple::getPeso()const{return peso;}
 
-void HachaSimaple::Afilar(){
-    filo = 10;
-    cout<<"Hacha afilada"<<endl;
+void HachaSimple::Afilar(){
+    filo = 10; //restaura el filo
+    cout<<"\nHacha afilada"<<endl;
     return;
 }
 
 //destructor
-HachaSimaple::~HachaSimaple(){
-    cout<<"El hacha simple ha sido destruida"<<endl;
+HachaSimple::~HachaSimple(){
+    cout<<"\nEl hacha simple ha sido destruida"<<endl;
 }

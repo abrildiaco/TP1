@@ -56,6 +56,7 @@ void LibroHechizos::Usar(){
     if(durabilidad >0 ){
         if(durabilidad == 0){
             cout<<"\nEl Libro de Hechizos ya no sirve"<<endl;
+            return;
         }
         
         int aleatorio = rand() % 3; //valores entre o y 2
@@ -82,6 +83,8 @@ void LibroHechizos::Usar(){
         durabilidad--;
         uso = true;
         cout<<"\nEl libro de Hechizos fue usado: "<<hechizo_actual<<endl;
+
+        return;
     }
 
 }

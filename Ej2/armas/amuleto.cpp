@@ -8,41 +8,47 @@
 using namespace std;
 
 //constructor
-Amuleto::Amuleto(string nombre_, int durabilidad_, bool suerte_)
-    :ItemMagico(nombre_, durabilidad_), suerte(suerte_) {
-        daño = 10;
-        auto_daño = 6;
-        if(suerte){daño = 15; auto_daño = 3;}
+Amuleto::Amuleto(string nombre_, int durabilidad_)
+    :ItemMagico(nombre_, durabilidad_){
+        
+        srand(time(0)); // Inicializa la semilla
+        //genero si el amuleto tiene suerte o no
+        bool suerte_ = rand() % 2; //valores entre 0 y 1
+        suerte = suerte_;
+        
+        if(suerte){
+            daño = 15;
+            auto_daño = 3;}
+        else{
+            daño = 10;
+            auto_daño = 6;
+        }
+
+        cout<<"\nEl amuleto fue creado"<<endl;
     }
 
 //metodos
 void Amuleto::getInfo()const{
-    cout<<"== Amuleto magico =="<<endl;
+    cout<<"\n== Amuleto magico =="<<endl;
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
-    cout<<"Duerte: "<<suerte<<endl;
+    cout<<"Suerte: "<<suerte<<endl;
 
 }
 
-// string Amuleto::getNombre()const{return nombre;}
-
-// int Amuleto::getDurabilidad()const{return durabilidad;}
-
-// float Amuleto::getDano() const{return daño;}
-
-// string Amuleto::getTipo() {return tipo_arma;}
-
 
 void Amuleto::Usar(){ 
-    if(durabilidad >0 ){
+    if(durabilidad == 0){
+        cout<<"\nEl amuleto ya no sirve"<<endl;
+        return;
+    }
+    else if(durabilidad >0 ){
         uso = true;
         durabilidad--;
     }
 
-    if(durabilidad == 0){
-        cout<<"Ya no tienes mas Amuleto"<<endl;
-    }
+    cout<<"\nEl Amuleto fue usado"<<endl;
 }
 
 float Amuleto::getAutoDano()const{return auto_daño;}
@@ -51,5 +57,5 @@ bool Amuleto::hasSuerte()const{return suerte;}
 
 //destructor
 Amuleto::~Amuleto(){
-    cout<<"El amuleto se ha destruido"<<endl;
+    cout<<"\nEl amuleto se ha destruido"<<endl;
 }

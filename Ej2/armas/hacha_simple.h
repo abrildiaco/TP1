@@ -1,7 +1,7 @@
 #pragma once
 #include "armas.h"
 
-class HachaSimple: public HachaSimple{
+class HachaSimple: public ArmaCombate{
     protected:
         int filo; //inician con filo de 10, en cada golpe baja el filo y daña menos
 
@@ -12,17 +12,13 @@ class HachaSimple: public HachaSimple{
         HachaSimple(std::string, int, float);//nombre, durabilidad, peso
     
         //metodos
-        // virtual std::string getNombre()const override;
-        // virtual int getDurabilidad()const override;
-        // virtual float getDano() const override;
-        //virtual std::string getTipo() override;
-        virtual void getInfo()const override; 
-        virtual void Usar() override;
+        void getInfo()const override; 
+        void Usar() override;
 
-        virtual float getPeso()const override;
-        virtual void Afilar()override;
+        float getPeso()const override;
+        void Afilar()override;
 
         //destructor
-        virtual ~HachaSimple() = default;
+        ~HachaSimple();
 
 };

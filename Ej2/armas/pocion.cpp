@@ -42,9 +42,10 @@ void Pocion::getInfo()const{
 void Pocion::Usar(){ 
     if(durabilidad == 0){
         cout<<"\nYa no tienes mas pocion"<<endl;
+        return;
     }
 
-    if(durabilidad >0 ){
+    else if(durabilidad >0 ){
         //genero una pocion inicial
         int aleatorio = rand() % 2; //valores entre 0 y 1
         tipo_actual = tipo[aleatorio];
@@ -62,6 +63,8 @@ void Pocion::Usar(){
         uso = true;
         durabilidad--;
     }
+
+    return;
 
 }
 
