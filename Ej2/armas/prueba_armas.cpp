@@ -6,6 +6,7 @@
 #include "amuleto.hpp"
 #include "hacha_simple.hpp"
 #include "hacha_doble.hpp"
+#include "espada.hpp"
 
 using namespace std;
 
@@ -91,8 +92,22 @@ int main(){
     
     // a.Usar();
 
-    cout<<"\n== Hacha doble prueba =="<<endl;
-    HachaDoble a("Hacha Doble", 3, 5);
+    // cout<<"\n== Hacha doble prueba =="<<endl;
+    // HachaDoble a("Hacha Doble", 3, 5);
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Afilar();
+    // a.getInfo();
+    // a.Usar();
+    
+    // a.Usar();
+
+    cout<<"\n== espada prueba =="<<endl;
+    Espada a("Espada", 3, 2);
     a.getInfo();
     a.Usar();
     
@@ -104,7 +119,6 @@ int main(){
     a.Usar();
     
     a.Usar();
-
 
     return 0;
 }

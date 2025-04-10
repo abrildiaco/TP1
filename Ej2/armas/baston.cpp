@@ -3,6 +3,8 @@
 #include "baston.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 

@@ -72,7 +72,6 @@ class ArmaCombate: public Armas{
         virtual void Usar() override = 0;
 
         virtual float getPeso()const = 0;
-        virtual void Afilar() = 0;
 
         //destructor
         virtual ~ArmaCombate() = default;

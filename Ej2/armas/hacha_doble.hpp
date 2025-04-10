@@ -15,7 +15,7 @@ class HachaDoble: public ArmaCombate{
         void Usar() override;
 
         float getPeso()const override;
-        void Afilar()override;
+        void Afilar();
 
         //destructor
         ~HachaDoble();
