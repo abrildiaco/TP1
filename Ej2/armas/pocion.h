@@ -2,35 +2,34 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include "armas.h"
 
 /*
-dos tipos de pociones: veneno, inmunidad
-si es de inmunidad y la uso, no puedo recibir daño (ni me hago auto daño)
-solo la pocion de veneno le hace daño al oponente.
-los efectos de la poción duran dos rondas.
+Existen dos tipos de pociones: veneno, inmunidad
+-en cada ataque se asigna de manera aleatoria un tipo de pocion
+-Inmunidad: si la uso, no puedo recibir daño cuando el oponente ataque (ni me hago auto daño)
+-Veneno: la pocion de veneno le hacele genero daño al oponente.
+los efectos de la poción duran una ronda.
 */
 
 class Pocion: public ItemMagico{
     private:
-        std::string tipo; //veneno, inmunidad
-        int duracion_efecto; //cuanto dura su efecto en turnos
+        std::vector<std::string> tipo; //veneno, inmunidad
+        std::string tipo_actual;
+        //int duracion_efecto; //cuanto dura su efecto en turnos
 
     public:
         //constructor
-        Pocion(std::string,  int, std::string); //nombre, durabilidad, tipo
+        Pocion(std::string,  int); //nombre, durabilidad
 
         //metodos
-        // std::string getNombre()const override;
-        // int getDurabilidad()const override;
-        // float getDano() const override;
-        // virtual std::string getTipo() override;
         void getInfo()const override; 
         void Usar() override;
         float getAutoDano()const override;
 
         std::string getTipo() const;
-        int getDuracionEfecto()const;
+        //int getDuracionEfecto()const;
 
 
         //destructor

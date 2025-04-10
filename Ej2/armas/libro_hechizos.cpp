@@ -16,12 +16,12 @@ LibroHechizos::LibroHechizos(string nombre_, int durabilidad_)
         
         srand(time(0)); // Inicializa la semilla
         //genero si el libro esta maldito o no
-        bool maldi = rand() % 2; //valores entre 0 y 1
-        maldito = maldi;
+        bool maldito_ = rand() % 2; //valores entre 0 y 1
+        maldito = maldito_;
 
         //genero un hechizo actual-inicial random
-        int aleatorio = rand() % 3; //valores entre o y 2
-        string hechizo_actual = hechizos[aleatorio];
+        int aleatorio = rand() % 3; //valores entre 0 y 2
+        hechizo_actual = hechizos[aleatorio];
 
         if(hechizo_actual == "congelamiento"){
             daño = 5;
@@ -36,12 +36,12 @@ LibroHechizos::LibroHechizos(string nombre_, int durabilidad_)
             daño = 0;
             auto_daño = 0;
         }
-        cout<<"Libro de Hechizos creado"<<endl;
+        cout<<"\nLibro de Hechizos creado"<<endl;
     }
 
 //metodos
 void LibroHechizos::getInfo()const{
-    cout<<"== Libro de Hechizos =="<<endl;
+    cout<<"\n== Libro de Hechizos =="<<endl;
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
@@ -52,16 +52,12 @@ void LibroHechizos::getInfo()const{
 
 }
 
-// string LibroHechizos::getNombre()const{return nombre;}
-
-// int LibroHechizos::getDurabilidad()const{return durabilidad;}
-
-// float LibroHechizos::getDano() const{return daño;}
-
-// string LibroHechizos::getTipo() {return tipo_arma;}
-
 void LibroHechizos::Usar(){ 
     if(durabilidad >0 ){
+        if(durabilidad == 0){
+            cout<<"\nEl Libro de Hechizos ya no sirve"<<endl;
+        }
+        
         int aleatorio = rand() % 3; //valores entre o y 2
         hechizo_actual = hechizos[aleatorio];
 
@@ -85,11 +81,9 @@ void LibroHechizos::Usar(){
         }
         durabilidad--;
         uso = true;
+        cout<<"\nEl libro de Hechizos fue usado: "<<hechizo_actual<<endl;
     }
 
-    if(durabilidad == 0){
-        cout<<"El Libro de Hechizos ya no sirve"<<endl;
-    }
 }
 
 float LibroHechizos::getAutoDano()const{ return auto_daño;}
@@ -102,5 +96,5 @@ bool LibroHechizos::isMaldito(){return maldito;}
 
 //destructor
 LibroHechizos::~LibroHechizos(){
-    cout<<"El libro de hechizos se ha destruido"<<endl;
+    cout<<"\nEl libro de hechizos se ha destruido"<<endl;
 }

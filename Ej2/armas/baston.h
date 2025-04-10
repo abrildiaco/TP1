@@ -12,13 +12,9 @@ class Baston: public ItemMagico{
     
     public:
         //constructor
-        Baston(std::string,  int, bool); //nombre, durabilidad, gema
+        Baston(std::string,  int); //nombre, durabilidad
 
         //metodos
-        // std::string getNombre()const override;
-        // int getDurabilidad()const override;
-        // float getDano() const override;
-        //virtual std::string getTipo() override;
         void getInfo()const override; 
         void Usar() override;
         float getAutoDano()const override;

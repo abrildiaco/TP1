@@ -7,17 +7,22 @@
 using namespace std;
 
 //constructor
-Baston::Baston(string nombre_, int durabilidad_, bool gema_)
-    :ItemMagico(nombre_, durabilidad_), tiene_gema(gema_), ulti(true) {   
-        daño = 17;
+Baston::Baston(string nombre_, int durabilidad_)
+    :ItemMagico(nombre_, durabilidad_), contador_daño(0), ulti(true) {   
+        
+        srand(time(0)); // Inicializa la semilla
+        //genero si el baston tiene gema o no
+        bool gema_ = rand() % 2; //valores entre 0 y 1
+        tiene_gema = gema_;
+        
+        daño = tiene_gema ? 20 : 17;
         auto_daño = 4;
-        if (gema_) daño = 20;
-        cout<<"Baston creado"<<endl;
+        cout<<"\nBaston creado"<<endl;
     }
 
 //metodos
 void Baston::getInfo()const{
-    cout<<"== Baston magico =="<<endl;
+    cout<<"\n== Baston magico =="<<endl;
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
@@ -25,36 +30,28 @@ void Baston::getInfo()const{
 
 }
 
-// std::string Baston::getNombre()const{return nombre;}
-
-// int Baston::getDurabilidad()const{return durabilidad;}
-
-// float Baston::getDano() const{return daño;}
-
-// string Baston::getTipo() {return tipo_arma;}
-
 void Baston::Usar(){ 
-    if(durabilidad >0 ){
-        if(contador_daño < 50){
-            cout<<"El baston fue usado"<<endl;
-            contador_daño += daño;
-        }
-        else if (contador_daño >= 50 && ulti){
-            cout<<"Ulti activada!"<<endl;
-            daño = 50;
-            ulti = false; // ya no se puede usar la ulti
-        }
-        else if(contador_daño >= 50 && !ulti){
-            daño = 17;
-        }
-        durabilidad--;
-        uso = true;
+    if (durabilidad == 0) {
+        cout << "\nYa no tienes más bastón." << endl;
+        return;
     }
 
-    if(durabilidad == 0){
-        cout<<"Ya no tienes mas Baston"<<endl;
+    if (contador_daño < 50) {
+        cout << "\nEl bastón fue usado. Daño normal: " << daño << endl;
+        contador_daño += daño;
+    } 
+    else if (ulti) {
+        cout << "\n¡Ulti activada! Daño máximo: 50" << endl;
+        daño = 50;
+        ulti = false; //ya no se puede usar
+    } 
+    else {
+        daño = tiene_gema ? 20 : 17; //si ya se uso la ulti, vuelvo a lo predeterminado
+        cout << "\nEl bastón fue usado después de la ulti. Daño: " << daño << endl;
     }
-    cout<<"El baston fue usado"<<endl;
+
+    durabilidad--;
+    uso = true;
 }
 
 float Baston::getAutoDano()const{return auto_daño;}
@@ -62,5 +59,5 @@ float Baston::getAutoDano()const{return auto_daño;}
 bool Baston::hasGema()const{return tiene_gema;}
 
 Baston::~Baston(){
-    cout<<"El baston fue destruido"<<endl;
+    cout<<"\nEl baston fue destruido"<<endl;
 }
