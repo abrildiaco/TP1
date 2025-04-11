@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "espada.hpp"
+#include "../armas.hpp"
+#include "../headers/espada.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

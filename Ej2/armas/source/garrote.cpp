@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "Garrote.hpp"
+#include "../armas.hpp"
+#include "../headers/garrote.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

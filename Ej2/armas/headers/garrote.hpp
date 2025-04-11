@@ -1,5 +1,5 @@
 #pragma once
-#include "armas.hpp"
+#include "../armas.hpp"
 #include <string>
 
 class Garrote: public ArmaCombate{

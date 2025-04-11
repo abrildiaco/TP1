@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "lanza.hpp"
+#include "../armas.hpp"
+#include "../headers/lanza.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

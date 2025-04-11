@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "amuleto.hpp"
+#include "../armas.hpp"
+#include "../headers/amuleto.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

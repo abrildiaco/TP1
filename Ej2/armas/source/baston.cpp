@@ -1,6 +1,6 @@
 #include <string>
-#include "armas.hpp"
-#include "baston.hpp"
+#include "../armas.hpp"
+#include "../headers/baston.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <cstdlib>

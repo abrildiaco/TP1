@@ -1,14 +1,14 @@
 #include <iostream>
 #include "armas.hpp"
-#include "libro_hechizos.hpp"
-#include "pocion.hpp"
-#include "baston.hpp"
-#include "amuleto.hpp"
-#include "hacha_simple.hpp"
-#include "hacha_doble.hpp"
-#include "espada.hpp"
-#include "lanza.hpp"
-#include "garrote.hpp"
+#include "headers/libro_hechizos.hpp"
+#include "headers/pocion.hpp"
+#include "headers/baston.hpp"
+#include "headers/amuleto.hpp"
+#include "headers/hacha_simple.hpp"
+#include "headers/hacha_doble.hpp"
+#include "headers/espada.hpp"
+#include "headers/lanza.hpp"
+#include "headers/garrote.hpp"
 
 using namespace std;
 

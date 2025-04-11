@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "pocion.hpp"
+#include "../armas.hpp"
+#include "../headers/pocion.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

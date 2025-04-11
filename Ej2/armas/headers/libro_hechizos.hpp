@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "armas.hpp"
+#include "../armas.hpp"
 
 /*
 el libro contiene tres hechizos: "congelamiento", "daño por daño", "curacion"

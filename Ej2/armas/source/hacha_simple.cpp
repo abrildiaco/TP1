@@ -1,5 +1,5 @@
-#include "armas.hpp"
-#include "hacha_simple.hpp"
+#include "../armas.hpp"
+#include "../headers/hacha_simple.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
