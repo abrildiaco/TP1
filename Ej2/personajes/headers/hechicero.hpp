@@ -2,8 +2,8 @@
 
 #include <string>
 #include <memory>
-#include "../armas/armas.hpp"
-#include "../personajes/personajes.hpp"
+#include "../../armas/armas.hpp"
+#include "../personajes.hpp"
 
 class Hechicero: public Mago{
     private:
@@ -13,14 +13,13 @@ class Hechicero: public Mago{
         bool ataco; //determina si el personaje ataco
 
         //constructor
-        Hechicero(std::string, float, std::unique_ptr<Arma>); //nombre, poder, fuerza, arma
+        Hechicero(std::string, float, std::shared_ptr<Arma>, std::shared_ptr<Arma>); //nombre, poder, fuerza, arma1, arma2
 
         //metodos
         void getInfo()const override; 
         void Curar() override;
-        void Atacar() override;
+        float Atacar(std::shared_ptr<Arma>) override;
         
-
         //destructor
         ~Hechicero();
 

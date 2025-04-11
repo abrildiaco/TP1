@@ -8,8 +8,8 @@ using namespace  std;
 //MAGO
 
 //constructor
-Mago::Mago(string nombre_, float fuerza_, unique_ptr<Arma> arma_) //nombre, poder, fuerza, arma
-    :tipo_personaje("Mago"), nombre(nombre_), hp(100), fuerza(fuerza_), arma(move(arma_)), ataco(false){
+Mago::Mago(string nombre_, float fuerza_, shared_ptr<Arma> arma1_ = nullptr, shared_ptr<Arma> arma2_ = nullptr) //nombre, poder, fuerza, arma
+    :tipo_personaje("Mago"), nombre(nombre_), hp(100), fuerza(fuerza_), arma1(arma1_), arma2(arma2_), ataco(false){
         
         if(nombre_ != "Hechicero" && nombre_ != "Conjurador" && nombre_ != "Brujo" && nombre_ != "Nigromante")
             throw invalid_argument("No existe ese Mago");
@@ -27,14 +27,21 @@ string Mago::getTipo()const{return tipo_personaje;}
 
 float  Mago::getHp() const {return hp;}
 
-Arma& Mago::getArma()const{return *arma;} //devuelvo una referencia al puntero, sin transferirle la 
-                                        //propiedad a quien llama la funcion
+shared_ptr<Arma> Mago::getArma1() {return arma1;}
+shared_ptr<Arma> Mago::getArma2() {return arma2;}
+
+bool Mago::recibirDano(float daño_recibido){
+    hp -= daño_recibido;
+    
+    return hp<=0; //si esta vivo o muerto
+}
+
 
 //GUERRERO
 
 //constructor
-Guerrero::Guerrero(string nombre_, float fuerza_, unique_ptr<Arma> arma_) //nombre, poder, fuerza, arma
-    :tipo_personaje("Mago"), nombre(nombre_), hp(100), fuerza(fuerza_), arma(move(arma_)), ataco(false){
+Guerrero::Guerrero(string nombre_, float fuerza_, shared_ptr<Arma> arma1_ = nullptr, shared_ptr<Arma> arma2_ = nullptr) //nombre, poder, fuerza, arma
+    :tipo_personaje("Mago"), nombre(nombre_), hp(100), fuerza(fuerza_), arma1(arma1_), arma2(arma2_), ataco(false){
         
         srand(time(0)); // Inicializa la semilla
         //genero si el personaje tiene proteccion o no
@@ -56,6 +63,16 @@ string Guerrero::getTipo()const{return tipo_personaje;}
 
 float  Guerrero::getHp() const {return hp;}
 
-Arma& Guerrero::getArma()const{return *arma;} //devuelvo una referencia al puntero, sin transferirle la 
-                                        //propiedad a quien llama la funcion
+shared_ptr<Arma> Guerrero::getArma1() {return arma1;}
+shared_ptr<Arma> Guerrero::getArma2() {return arma2;}
+
+bool Guerrero::recibirDano(float daño_recibido, shared_ptr<ItemMagico> arma = nullptr){
+    
+    if(arma && !proteccion) hp -= arma->getAutoDano();
+    
+    hp -= daño_recibido;
+    
+    return hp <= 0; //si esta vivo o muerto
+}
+
 bool Guerrero::getProteccion()const{return proteccion;}
