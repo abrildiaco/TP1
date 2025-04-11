@@ -38,14 +38,19 @@ void Nigromante::Curar(){
 
 float Nigromante::Atacar(shared_ptr<Arma> arma){
     int daño_generado = 0;
-    arma->Usar();
+    if(arma){
+        arma->Usar();
 
-    if(arma->getDurabilidad() > 0){
+        if(arma->getDurabilidad() > 0){
 
-        daño_generado += fuerza + arma->getDano();
-        ataco = true;
-        cout<<"\nEl Nigromante atacó"<<endl;
+            daño_generado += fuerza + arma->getDano();
+        }
+    }else{
+        //si no tiene arma, ataca con la fuerza
+        daño_generado += fuerza;
     }
+    ataco = true;
+    cout<<"\nEl Nigromante atacó"<<endl;
     return daño_generado;
 }
 

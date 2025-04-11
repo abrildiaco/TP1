@@ -37,20 +37,25 @@ void Caballero::Curar(){
 }
 
 
-float Caballero::Atacar(shared_ptr<Arma> arma){
+float Caballero::Atacar(shared_ptr<Arma> arma = nullptr){
     int daño_generado = 0;
-    arma->Usar();
+    if(arma){
+        arma->Usar();
 
-    if(arma->getDurabilidad() > 0){
-        if(arma->getNombre() == afinidad){
-            //daño extra causado por afinidad
-            daño_generado += 4;
+        if(arma->getDurabilidad() > 0){
+            if(arma->getNombre() == afinidad){
+                //daño extra causado por afinidad
+                daño_generado += 4;
+            }
+
+            daño_generado += fuerza + arma->getDano();
         }
-
-        daño_generado += fuerza + arma->getDano();
-        ataco = true;
-        cout<<"\nEl Caballero atacó"<<endl;
+    }else{
+        //si no tiene arma, ataca con la fuerza
+        daño_generado += fuerza;
     }
+    ataco = true;
+    cout<<"\nEl Caballero atacó"<<endl;
     return daño_generado;
 }
 

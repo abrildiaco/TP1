@@ -46,27 +46,32 @@ void Barbaro::activarIra(){
     }
 }
 
-float Barbaro::Atacar(shared_ptr<Arma> arma){
+float Barbaro::Atacar(shared_ptr<Arma> arma=nullptr){
     int daño_generado = 0;
-    arma->Usar();
+    if(arma){
+        arma->Usar();
 
-    if(arma->getDurabilidad() > 0){
-        if(arma->getNombre() == afinidad){
-            //daño extra causado por afinidad
-            daño_generado += 4;
+        if(arma->getDurabilidad() > 0){
+            if(arma->getNombre() == afinidad){
+                //daño extra causado por afinidad
+                daño_generado += 4;
+            }
+            if(ira){
+                //si el barbaro tiene ira, el daño es mayor
+                daño_generado += (fuerza + arma->getDano()) +  (fuerza + arma->getDano())*(0.5); //50% mas de daño
+                ira = false; //desactivo la ira
+            }
+            else{
+                //si no tiene ira, el daño es normal
+                daño_generado += fuerza + arma->getDano();
+            }
         }
-        if(ira){
-            //si el barbaro tiene ira, el daño es mayor
-            daño_generado += (fuerza + arma->getDano()) +  (fuerza + arma->getDano())*(0.5); //50% mas de daño
-            ira = false; //desactivo la ira
-        }
-        else{
-            //si no tiene ira, el daño es normal
-            daño_generado += fuerza + arma->getDano();
-        }
-        ataco = true;
-        cout<<"\nEl Barbaro atacó"<<endl;
+    }else{
+        //si no tiene arma, el daño es solo la fuerza
+        daño_generado += fuerza;
     }
+    ataco = true;
+    cout<<"\nEl Barbaro atacó"<<endl;
     return daño_generado;
 }
 

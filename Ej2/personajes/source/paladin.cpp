@@ -49,20 +49,31 @@ void Paladin::activarJuicioSolar(){
 
 float Paladin::Atacar(shared_ptr<Arma> arma){
     int daño_generado = 0;
-    arma->Usar();
+    if(arma){
+        arma->Usar();
 
-    if(arma->getDurabilidad() > 0){
+        if(arma->getDurabilidad() > 0){
+            if(juicio_solar){
+                //si el Paladin se enfrenta a un nigromante o brujo
+                daño_generado += (fuerza + arma->getDano()) +  (fuerza + arma->getDano())*(0.5); //50% mas de daño
+            }
+            else{
+                daño_generado += (fuerza + arma->getDano())
+            }
+        }
+    }
+    else{
         if(juicio_solar){
             //si el Paladin se enfrenta a un nigromante o brujo
-            daño_generado += (fuerza + arma->getDano()) +  (fuerza + arma->getDano())*(0.5); //50% mas de daño
+            daño_generado += fuerza +  (fuerza)*(0.5); //50% mas de daño
         }
         else{
-            //si no tiene ira, el daño es normal
-            daño_generado += fuerza + arma->getDano();
+            daño_generado += fuerza;
         }
-        ataco = true;
-        cout<<"\nEl Paladin atacó"<<endl;
+
     }
+    ataco = true;
+    cout<<"\nEl Paladin atacó"<<endl;
     return daño_generado;
 }
 

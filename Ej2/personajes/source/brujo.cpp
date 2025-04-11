@@ -36,19 +36,21 @@ void Brujo::Curar(){
     return;
 }
 
-float Brujo::Atacar(shared_ptr<Arma> arma){
+float Brujo::Atacar(shared_ptr<Arma> arma = nullptr){
     int daño_generado = 0;
-    arma->Usar();
-
-    if(arma->getDurabilidad() > 0){
-        if(arma->getNombre() == afinidad){
-            //daño extra causado por afinidad
-            daño_generado += 4;
+    if(arma) {
+        arma->Usar(){
+        if(arma->getDurabilidad() > 0){
+            if(arma->getNombre() == afinidad){
+                //daño extra causado por afinidad
+                daño_generado += 4;
+            }
+            daño_generado += arma->getDano();
         }
-        daño_generado += fuerza + arma->getDano();
-        ataco = true;
-        cout<<"\nEl Brujo atacó"<<endl;
     }
+    daño_generado += fuerza;
+    ataco = true;
+    cout<<"\nEl Brujo atacó"<<endl;
     return daño_generado;
 }
 

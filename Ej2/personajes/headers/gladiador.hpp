@@ -5,16 +5,15 @@
 #include "../../armas/armas.hpp"
 #include "../personajes.hpp"
 
-class Mercenario: public Guerrero{
+class Gladiador: public Guerrero{
     private:
-        float comision; //de cada daño que recibe, se guarda una comision del 30%
-                        //cuando esta comisión alcanza 30, se la devuelve en el ataque
-
+        int nivelIntimidante; //se le genera un nivel de intimidacion al gladiador
+                            //de manera aleatoria [1, 10]. segun el nivel, recibira menos daño
     public:
         bool ataco; //determina si el personaje ataco
 
         //constructor
-        Mercenario(std::string, float, std::shared_ptr<Arma>, std::shared_ptr<Arma>); //nombre, poder, fuerza, arma1, arma2
+        Gladiador(std::string, float, std::shared_ptr<Arma>, std::shared_ptr<Arma>); //nombre, poder, fuerza, arma1, arma2
 
         //metodos
         void getInfo()const override; 
@@ -23,6 +22,6 @@ class Mercenario: public Guerrero{
         bool recibirDano(float, std::shared_ptr<ItemMagico>) override; 
 
         //destructor
-        ~Mercenario();
+        ~Gladiador();
 
 };

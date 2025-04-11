@@ -36,21 +36,26 @@ void Mercenario::Curar(){
 }
 
 
-float Mercenario::Atacar(shared_ptr<Arma> arma){
+float Mercenario::Atacar(shared_ptr<Arma> arma = nullptr){
     int daño_generado = 0;
-    arma->Usar();
+    if(arma){
+        arma->Usar();
 
-    if(arma->getDurabilidad() > 0){
-        
-        if(comision >= 30){
-            //si la comision es mayor a 30, se la suma al daño
-            daño_generado += 30;
-            comision = 0; //se reinicia la comision
+        if(arma->getDurabilidad() > 0){
+            daño_generado += fuerza + arma->getDano();
         }
-        daño_generado += fuerza + arma->getDano();
-        ataco = true;
-        cout<<"\nEl Mercenario atacó"<<endl;
+    }else{
+        //si no tiene arma, ataca con la fuerza
+        daño_generado += fuerza;
     }
+    if(comision >= 30){
+        //si la comision es mayor a 30, se la suma al daño
+        daño_generado += 30;
+        comision = 0; //se reinicia la comision
+        cout<<"\nEl Mercenario cobro su comision"<<endl;
+    }
+    ataco = true;
+    cout<<"\nEl Mercenario atacó"<<endl;
     return daño_generado;
 }
 
