@@ -2,9 +2,9 @@
 
 #include <string>
 
-//Declaracion de la interfaz Armas
+//Declaracion de la interfaz Arma
 
-class Armas{
+class Arma{
     public:
         virtual void getInfo()const = 0; //me muestre una descripcion e informacion del arma
         virtual std::string getNombre()const = 0; //me devuelve el nombre del arma
@@ -13,12 +13,12 @@ class Armas{
         virtual float getDano() const = 0; //me devuelve cuanto daño hace el arma
         virtual void Usar() = 0;
 
-        virtual ~Armas() = default; 
+        virtual ~Arma() = default; 
 };
 
 //Declaracion de clases abstractas
 
-class ItemMagico: public Armas{
+class ItemMagico: public Arma{
 
     protected:
         std::string tipo_arma; //si es item magico o de combate
@@ -49,7 +49,7 @@ class ItemMagico: public Armas{
         
 };
 
-class ArmaCombate: public Armas{
+class ArmaCombate: public Arma{
     protected:
         std::string tipo_arma; //si es item magico o de combate
         std::string nombre;

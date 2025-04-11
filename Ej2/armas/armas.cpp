@@ -8,7 +8,7 @@ using namespace std;
 //constructores clases abstractas
 
 ItemMagico::ItemMagico(string nombre_, int durabilidad_)
-    :tipo_arma("magica"), nombre(nombre_), durabilidad(durabilidad_), uso(false) {
+    :tipo_arma("Item Magico"), nombre(nombre_), durabilidad(durabilidad_), uso(false) {
         if(durabilidad_ <0)
             throw invalid_argument("La durabilidad no puede ser negativa");
 
@@ -26,14 +26,14 @@ string ItemMagico::getTipo() {return tipo_arma;}
 
 
 ArmaCombate::ArmaCombate(string nombre_, int durabilidad_, float peso_)//nombre, durabilidad, peso
-    :tipo_arma("combate"), nombre(nombre_), durabilidad(durabilidad_), peso(peso_), uso(false){
+    :tipo_arma("Combate"), nombre(nombre_), durabilidad(durabilidad_), peso(peso_), uso(false){
         
-        if(peso_ <1)
-            throw invalid_argument("El peso debe ser mayor a uno");
-        
-        if(peso_ >5)
-            throw invalid_argument("El peso debe ser menor a cinco");
+        if(durabilidad_ <0)
+            throw invalid_argument("La durabilidad no puede ser negativa");
 
+        if(peso_ <1 || peso_ >5)
+            throw invalid_argument("El peso deeb estar entre 1 y 5");
+        
         if(nombre_ != "Hacha Simple" && nombre_ != "Hacha Doble" && nombre_ != "Espada" && nombre_ != "Lanza" && nombre_ != "Garrote")
             throw invalid_argument("No existe esa arma mágica");
     }
