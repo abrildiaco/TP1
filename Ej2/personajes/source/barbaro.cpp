@@ -8,7 +8,7 @@ using namespace std;
 
 //constructor
 Barbaro::Barbaro(string nombre_, float fuerza_, shared_ptr<Arma> arma1_ = nullptr, shared_ptr<Arma> arma2_ = nullptr)
-    :Mago(nombre_,fuerza_, arma1_, arma2_), afinidad("Hacha Simple"), ira(false){}
+    :Guerrero(nombre_,fuerza_, arma1_, arma2_), afinidad("Hacha Simple"), ira(false){}
 
 //metodos
 void Barbaro::getInfo()const{
@@ -36,6 +36,16 @@ void Barbaro::Curar(){
     return;
 }
 
+void Barbaro::activarIra(){
+    if(!ira){
+        ira = true;
+        cout<<"\nEl Barbaro activo la ira"<<endl;
+    }
+    else{
+        cout<<"\nEl Barbaro ya tiene ira activada"<<endl;
+    }
+}
+
 float Barbaro::Atacar(shared_ptr<Arma> arma){
     int daño_generado = 0;
     arma->Usar();
@@ -60,7 +70,7 @@ float Barbaro::Atacar(shared_ptr<Arma> arma){
     return daño_generado;
 }
 
-bool Barbaro::recibirDano(float daño_recibido, shared_ptr<ItemMagico> pocion){
+bool Barbaro::recibirDano(float daño_recibido, shared_ptr<ItemMagico> arma = nullptr){
     //si el personaje no tiene proteccion y usa un arma magica recibe daño 
     if(arma && !proteccion) hp -= arma->getAutoDano();
     
@@ -69,8 +79,7 @@ bool Barbaro::recibirDano(float daño_recibido, shared_ptr<ItemMagico> pocion){
     
     //activo ira si eldaño recibido fue mayor a 20
     if(daño_recibido > 20 && !ira){
-        ira = true;
-        cout<<"\nEl Barbaro activo la ira"<<endl;
+        this->activarIra();
     }
     return hp <= 0; //si esta vivo o muerto
 }

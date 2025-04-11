@@ -41,7 +41,7 @@ bool Mago::recibirDano(float daño_recibido){
 
 //constructor
 Guerrero::Guerrero(string nombre_, float fuerza_, shared_ptr<Arma> arma1_ = nullptr, shared_ptr<Arma> arma2_ = nullptr) //nombre, poder, fuerza, arma
-    :tipo_personaje("Mago"), nombre(nombre_), hp(100), fuerza(fuerza_), arma1(arma1_), arma2(arma2_), ataco(false){
+    :tipo_personaje("Guerrero"), nombre(nombre_), hp(100), fuerza(fuerza_), arma1(arma1_), arma2(arma2_), ataco(false){
         
         srand(time(0)); // Inicializa la semilla
         //genero si el personaje tiene proteccion o no

@@ -10,7 +10,7 @@ class Barbaro: public Guerrero{
         std::string afinidad; //tiene afinidad con el hacha simple
                                 //si le toca hace mas daño
         bool ira; //se activa la ira cuando le hacen mucho daño
-                //en un mismo ataque --> devielve con el dombre de fuerza
+                //en un mismo ataque --> genera un daño extra
 
     public:
         bool ataco; //determina si el personaje ataco
@@ -22,8 +22,8 @@ class Barbaro: public Guerrero{
         void getInfo()const override; 
         void Curar() override;
         float Atacar(std::shared_ptr<Arma>) override;
-        bool recibirDano(float, std::shared_ptr<ItemMagico>) override;
         void activarIra();
+        bool recibirDano(float, std::shared_ptr<ItemMagico>) override;
         
         //destructor
         ~Barbaro();
