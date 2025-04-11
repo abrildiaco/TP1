@@ -29,7 +29,7 @@ void Baston::getInfo()const{
     cout<<"Daño: "<<daño<<endl;
     cout<<"Daño acumulado al oponente: "<<contador_daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
-    cout<<"Tiene gema: "<<tiene_gema<<endl;
+    cout<<"Tiene gema: "<<(tiene_gema ? "Si" : "No")<<endl;
 
 }
 

@@ -46,7 +46,7 @@ void Espada::getInfo()const{
     cout<<"Daño: "<<daño<<endl;
     cout<<"Peso: "<<peso<<endl;
     cout<<"Filo: "<<filo<<endl;
-    cout<<"Diamante: "<<diamante<<endl;
+    cout<<"Diamante: "<<(diamante ? "Si" : "No")<<endl;
 
 
 }

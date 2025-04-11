@@ -44,7 +44,7 @@ void LibroHechizos::getInfo()const{
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
-    cout<<"Maldito: "<<maldito<<endl;
+    cout<<"Maldito: "<<(maldito ? "Si" : "No")<<endl;
     cout<<"Hechizos: congelamiento, daño por daño, curacion"<<endl;
     cout<<"Hechizo actual: "<<hechizo_actual<<endl;
 

@@ -7,7 +7,7 @@
 
 class Nigromante: public Mago{
     private:
-
+        bool revivir; //puede resucitar de la muerte en una ocasion
         
     public:
         bool ataco; //determina si el personaje ataco
@@ -19,6 +19,7 @@ class Nigromante: public Mago{
         void getInfo()const override; 
         void Curar() override;
         float Atacar(std::shared_ptr<Arma>) override;
+        void Revivir(); //resucita al nigromante si no lo ha hecho antes
         
         //destructor
         ~Nigromante();

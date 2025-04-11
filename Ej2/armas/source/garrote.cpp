@@ -45,7 +45,7 @@ void Garrote::getInfo()const{
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Peso: "<<peso<<endl;
-    cout<<"Clavos: "<<clavos<<endl;
+    cout<<"Clavos: "<<(clavos ? "Si" : "No")<<endl;
 
 }
 

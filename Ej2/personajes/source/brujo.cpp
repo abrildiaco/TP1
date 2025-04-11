@@ -23,14 +23,17 @@ void Brujo::getInfo()const{
 }
 
 void Brujo::Curar(){
+    
+    if(hp < 1) cout<<"\nEl Brujo ya esta muerto"<<endl;    
     //solo se pude curar si tiene menos de 40 de vida
-    if(hp < 40){
+    else if(hp < 40){
         hp = 100;
         cout<<"\nEl Brujo se curo"<<endl;
         return;
     }
 
     cout<<"\nEl Brujo no necesita curarse"<<endl;
+    return;
 }
 
 float Brujo::Atacar(shared_ptr<Arma> arma){

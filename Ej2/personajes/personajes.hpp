@@ -60,7 +60,7 @@ class Guerrero: public Personaje{
         float hp; //vida del personaje
         float fuerza; //va de [0, 5]
         bool proteccion; //aleatoriamente se les asignara una proteccion en el caso
-        //que usen un arma máguca para evitar el auto_daño
+        //que usen un arma mágica para evitar el auto_daño
         
         //armas del personaje
         std::shared_ptr<Arma> arma1;

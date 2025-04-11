@@ -67,9 +67,10 @@ shared_ptr<Arma> Guerrero::getArma1() {return arma1;}
 shared_ptr<Arma> Guerrero::getArma2() {return arma2;}
 
 bool Guerrero::recibirDano(float daño_recibido, shared_ptr<ItemMagico> arma = nullptr){
-    
+    //si el personaje no tiene proteccion y usa un arma magica recibe daño 
     if(arma && !proteccion) hp -= arma->getAutoDano();
     
+    //recibe el daño de ataque
     hp -= daño_recibido;
     
     return hp <= 0; //si esta vivo o muerto

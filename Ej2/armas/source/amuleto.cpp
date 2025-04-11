@@ -34,7 +34,7 @@ void Amuleto::getInfo()const{
     cout<<"Durabilidad: "<<durabilidad<<endl;
     cout<<"Daño: "<<daño<<endl;
     cout<<"Auto daño: "<<auto_daño<<endl;
-    cout<<"Suerte: "<<suerte<<endl;
+    cout<<"Suerte: "<<(suerte ? "Si" : "No")<<endl;
 
 }
 

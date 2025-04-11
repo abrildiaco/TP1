@@ -23,14 +23,16 @@ void Hechicero::getInfo()const{
 }
 
 void Hechicero::Curar(){
+    if(hp < 1) cout<<"\nEl Hechicero ya esta muerto"<<endl;
     //solo se pude curar si tiene menos de 40 de vida
-    if(hp < 40){
+    else if(hp < 40){
         hp = 100;
         cout<<"\nEl Hechicero se curo"<<endl;
         return;
     }
 
     cout<<"\nEl Hechicero no necesita curarse"<<endl;
+    return;
 }
 
 float Hechicero::Atacar(shared_ptr<Arma> arma){

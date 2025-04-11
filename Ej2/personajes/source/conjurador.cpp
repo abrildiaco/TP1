@@ -23,14 +23,16 @@ void Conjurador::getInfo()const{
 }
 
 void Conjurador::Curar(){
+    if(hp < 1) cout<<"\nEl Conjurador ya esta muerto"<<endl;    
     //solo se pude curar si tiene menos de 40 de vida
-    if(hp < 40){
+    else if(hp < 40){
         hp = 100;
         cout<<"\nEl Conjurador se curo"<<endl;
         return;
     }
 
     cout<<"\nEl Conjurador no necesita curarse"<<endl;
+    return;
 }
 
 float Conjurador::Atacar(shared_ptr<Arma> arma){
